@@ -136,8 +136,8 @@
         
     </div>
 
-            <p>This cycle starts with roughly the same chance of a Democratic majority as last cycle. </p>
-
+            <p>This cycle starts with roughly the same chance of a Democratic majority as last cycle. Control of the Senate rests on a knife's edge. Democrats can only afford a net loss of one seat. Likewise, Republicans need to add just one seat to win a majority.</p>
+<p>While the national environment should favor the GOP, poor candidate quality has plagued them in key races. Additionally, the <i>Dobbs</i> decision may be contributing to a more favorable environment for Democrats that once expected.</i></p>
 <h2>About</h2>
     <p>This Senate forecast combines polling and fundamentals such as fundraising to predict the vote share. It then simulates 10,000 possible different outcomes.</p>         
 <h2>Possible Outcomes</h2>
@@ -150,45 +150,33 @@
   </tr>       
 </table>
 <h2>Notes</h2>
-    <p>[1] As the Vice President breaks Senate ties, actual Senate control depends greatly on the outcome of the Presidential election. The win probabilities above are calculated from the chance either party wins 51 seats or more.</p>
-    <p>[2] Dr. Al Gross of <span onmouseover="Georgia(1)" onmouseout="hideInfo()" id="tag">Alaska</span> is an independent who will appear on the ballot as a Democrat and intends to caucus with the Democrats. He is counted as a Democrat for the purpose of this model.</p>
-    <p>[3] The <span onmouseover="Georgia(7)" onmouseout="hideInfo()" id="tag">Georgia Special election</span> is a jungle primary with multiple Democrats and Republicans competing. If no candidate wins a majority outright, the two highest vote-getters will go to a runoff.</p>
+    <p>[1] Democrats currently control the Vice-Presidency, allowing them to split tied votes. This means the GOP will need to win an outright majority of 51 seats.</p>
+    <p>[2] Evan McMullin of <span onmouseover="Georgia(31)" onmouseout="hideInfo()" id="tag">Utah</span> is an independent who has stated he will not caucus with either party.</p>
+    <p>[3] In Alaska, four different candidates will face off using Ranked Choice Voting (RCV). The model gives the odds a Republican or Democrat will win, as there are multiple Republicans in the race.</p>
     </div>
 </div>
 </body>
 <script>
-var dSeatAvg = 50;
-var rSeatAvg = 50;
+var dSeatAvg = 51;
+var rSeatAvg = 49;
 
-var displayProbDem =63;
+var displayProbDem =64;
 var displayProbTie =0;
 var displayProbGOP = 100 - (displayProbDem+displayProbTie);
 
 var index = 0;
 var dist = [
   {
-    "DEM": 40,
-    "Prob %": 0.001
-  },
-  {
-    "DEM": 41,
-    "Prob %": 0
-  },
-  {
-    "DEM": 42,
-    "Prob %": 0.01
-  },
-  {
     "DEM": 43,
     "Prob %": 0.01
   },
   {
     "DEM": 44,
-    "Prob %": 0.02
+    "Prob %": 0.01
   },
   {
     "DEM": 45,
-    "Prob %": 0.03
+    "Prob %": 0.02
   },
   {
     "DEM": 46,
@@ -196,7 +184,7 @@ var dist = [
   },
   {
     "DEM": 47,
-    "Prob %": 0.06
+    "Prob %": 0.07
   },
   {
     "DEM": 48,
@@ -208,19 +196,19 @@ var dist = [
   },
   {
     "DEM": 50,
-    "Prob %": 0.12
+    "Prob %": 0.13
   },
   {
     "DEM": 51,
-    "Prob %": 0.12
+    "Prob %": 0.13
   },
   {
     "DEM": 52,
-    "Prob %": 0.11
+    "Prob %": 0.12
   },
   {
     "DEM": 53,
-    "Prob %": 0.09
+    "Prob %": 0.1
   },
   {
     "DEM": 54,
@@ -228,7 +216,7 @@ var dist = [
   },
   {
     "DEM": 55,
-    "Prob %": 0.04
+    "Prob %": 0.05
   },
   {
     "DEM": 56,
@@ -237,22 +225,6 @@ var dist = [
   {
     "DEM": 57,
     "Prob %": 0.01
-  },
-  {
-    "DEM": 58,
-    "Prob %": 0
-  },
-  {
-    "DEM": 59,
-    "Prob %": 0
-  },
-  {
-    "DEM": 60,
-    "Prob %": 0
-  },
-  {
-    "DEM": 61,
-    "Prob %": 0
   }
 ];
 
@@ -271,8 +243,8 @@ var states =[
   },
   {
     "State": "AK",
-    "DemProb": 0,
-    "RepProb": 1,
+    "DemProb": 0.0078,
+    "RepProb": 0.9922,
     "DEM": 36,
     "GOP": 64,
     "Marg": -28,
@@ -295,8 +267,8 @@ var states =[
   },
   {
     "State": "AZ",
-    "DemProb": 0.7026,
-    "RepProb": 0.2974,
+    "DemProb": 0.6205,
+    "RepProb": 0.3795,
     "DEM": 51.71875,
     "GOP": 48.28125,
     "Marg": 3.4375,
@@ -319,8 +291,8 @@ var states =[
   },
   {
     "State": "CO",
-    "DemProb": 0.9565,
-    "RepProb": 0.0435,
+    "DemProb": 0.8409,
+    "RepProb": 0.1591,
     "DEM": 55.6875,
     "GOP": 44.3125,
     "Marg": 11.375,
@@ -331,8 +303,8 @@ var states =[
   },
   {
     "State": "CT",
-    "DemProb": 0.9955,
-    "RepProb": 0.0045,
+    "DemProb": 0.9251,
+    "RepProb": 0.0749,
     "DEM": 58.425,
     "GOP": 41.575,
     "Marg": 16.85,
@@ -343,8 +315,8 @@ var states =[
   },
   {
     "State": "FL",
-    "DemProb": 0.1881,
-    "RepProb": 0.8119,
+    "DemProb": 0.3117,
+    "RepProb": 0.6883,
     "DEM": 47.05,
     "GOP": 52.95,
     "Marg": -5.9,
@@ -355,8 +327,8 @@ var states =[
   },
   {
     "State": "GA",
-    "DemProb": 0.4395,
-    "RepProb": 0.5605,
+    "DemProb": 0.4711,
+    "RepProb": 0.5289,
     "DEM": 49.45625,
     "GOP": 50.54375,
     "Marg": -1.0875,
@@ -391,8 +363,8 @@ var states =[
   },
   {
     "State": "IL",
-    "DemProb": 0.9815,
-    "RepProb": 0.0185,
+    "DemProb": 0.8782,
+    "RepProb": 0.1218,
     "DEM": 56.875,
     "GOP": 43.125,
     "Marg": 13.75,
@@ -403,8 +375,8 @@ var states =[
   },
   {
     "State": "IN",
-    "DemProb": 0,
-    "RepProb": 1,
+    "DemProb": 0.0004,
+    "RepProb": 0.9996,
     "DEM": 30.6,
     "GOP": 69.4,
     "Marg": -38.8,
@@ -415,8 +387,8 @@ var states =[
   },
   {
     "State": "IA",
-    "DemProb": 0.069,
-    "RepProb": 0.931,
+    "DemProb": 0.2013,
+    "RepProb": 0.7987,
     "DEM": 44.975,
     "GOP": 55.025,
     "Marg": -10.05,
@@ -427,8 +399,8 @@ var states =[
   },
   {
     "State": "KS",
-    "DemProb": 0,
-    "RepProb": 1,
+    "DemProb": 0.0133,
+    "RepProb": 0.9867,
     "DEM": 37.1,
     "GOP": 62.9,
     "Marg": -25.8,
@@ -439,8 +411,8 @@ var states =[
   },
   {
     "State": "KY",
-    "DemProb": 0.0002,
-    "RepProb": 0.9998,
+    "DemProb": 0.0163,
+    "RepProb": 0.9837,
     "DEM": 37.375,
     "GOP": 62.625,
     "Marg": -25.25,
@@ -451,8 +423,8 @@ var states =[
   },
   {
     "State": "LA",
-    "DemProb": 0,
-    "RepProb": 1,
+    "DemProb": 0.003,
+    "RepProb": 0.997,
     "DEM": 33.775,
     "GOP": 66.225,
     "Marg": -32.45,
@@ -475,8 +447,8 @@ var states =[
   },
   {
     "State": "MO",
-    "DemProb": 0.0019,
-    "RepProb": 0.9981,
+    "DemProb": 0.0473,
+    "RepProb": 0.9527,
     "DEM": 40.225,
     "GOP": 59.775,
     "Marg": -19.55,
@@ -487,11 +459,11 @@ var states =[
   },
   {
     "State": "NV",
-    "DemProb": 0.5471,
-    "RepProb": 0.4529,
-    "DEM": 50.36875,
-    "GOP": 49.63125,
-    "Marg": 0.7375,
+    "DemProb": 0.5491,
+    "RepProb": 0.4509,
+    "DEM": 50.725,
+    "GOP": 49.275,
+    "Marg": 1.45,
     "StateName": "Nevada",
     "DemCand": "Cortez Masto",
     "RepCand": "Laxalt",
@@ -499,8 +471,8 @@ var states =[
   },
   {
     "State": "NH",
-    "DemProb": 0.7283,
-    "RepProb": 0.2717,
+    "DemProb": 0.6335,
+    "RepProb": 0.3665,
     "DEM": 51.975,
     "GOP": 48.025,
     "Marg": 3.95,
@@ -511,8 +483,8 @@ var states =[
   },
   {
     "State": "NY",
-    "DemProb": 0.9998,
-    "RepProb": 0.0002,
+    "DemProb": 0.985,
+    "RepProb": 0.015,
     "DEM": 62.4,
     "GOP": 37.6,
     "Marg": 24.8,
@@ -523,8 +495,8 @@ var states =[
   },
   {
     "State": "NC",
-    "DemProb": 0.3721,
-    "RepProb": 0.6279,
+    "DemProb": 0.4263,
+    "RepProb": 0.5737,
     "DEM": 48.875,
     "GOP": 51.125,
     "Marg": -2.25,
@@ -541,14 +513,14 @@ var states =[
     "GOP": 86.6,
     "Marg": -73.2,
     "StateName": "North Dakota",
-    "DemCand": "",
-    "RepCand": "",
+    "DemCand": "Hoevan",
+    "RepCand": "Christiansen",
     "Incumbent": "R"
   },
   {
     "State": "OH",
-    "DemProb": 0.3298,
-    "RepProb": 0.6702,
+    "DemProb": 0.399,
+    "RepProb": 0.601,
     "DEM": 48.55,
     "GOP": 51.45,
     "Marg": -2.9,
@@ -583,8 +555,8 @@ var states =[
   },
   {
     "State": "OR",
-    "DemProb": 0.9997,
-    "RepProb": 0.0003,
+    "DemProb": 0.9736,
+    "RepProb": 0.0264,
     "DEM": 61.2,
     "GOP": 38.8,
     "Marg": 22.4,
@@ -595,8 +567,8 @@ var states =[
   },
   {
     "State": "PA",
-    "DemProb": 0.8295,
-    "RepProb": 0.1705,
+    "DemProb": 0.7053,
+    "RepProb": 0.2947,
     "DEM": 53.1375,
     "GOP": 46.8625,
     "Marg": 6.275,
@@ -607,8 +579,8 @@ var states =[
   },
   {
     "State": "SC",
-    "DemProb": 0,
-    "RepProb": 1,
+    "DemProb": 0.0026,
+    "RepProb": 0.9974,
     "DEM": 33.5,
     "GOP": 66.5,
     "Marg": -33,
@@ -619,8 +591,8 @@ var states =[
   },
   {
     "State": "SD",
-    "DemProb": 0,
-    "RepProb": 1,
+    "DemProb": 0.0001,
+    "RepProb": 0.9999,
     "DEM": 28.975,
     "GOP": 71.025,
     "Marg": -42.05,
@@ -631,8 +603,8 @@ var states =[
   },
   {
     "State": "UT",
-    "DemProb": 0.0007,
-    "RepProb": 0.9993,
+    "DemProb": 0.0313,
+    "RepProb": 0.9687,
     "DEM": 39.225,
     "GOP": 60.775,
     "Marg": -21.55,
@@ -655,8 +627,8 @@ var states =[
   },
   {
     "State": "WA",
-    "DemProb": 0.9915,
-    "RepProb": 0.0085,
+    "DemProb": 0.914,
+    "RepProb": 0.086,
     "DEM": 57.75,
     "GOP": 42.25,
     "Marg": 15.5,
@@ -667,8 +639,8 @@ var states =[
   },
   {
     "State": "WI",
-    "DemProb": 0.5985,
-    "RepProb": 0.4015,
+    "DemProb": 0.5545,
+    "RepProb": 0.4455,
     "DEM": 50.75,
     "GOP": 49.25,
     "Marg": 1.5,
@@ -713,7 +685,7 @@ $(document).ready(function() {
         var note;
 
         var width = dist[x]["Prob %"];
-        if(dist[x].DEM>50){
+        if(dist[x].DEM>49){
          fill = "background-color:#2798da";  
                         var shade2 = ((100-dist[x].DEM)/50)*((x-6)*.1)
 
@@ -726,18 +698,13 @@ $(document).ready(function() {
             
             }
         }
-          else if(dist[x].DEM<50){
+          else if(dist[x].DEM<49){
          fill = "background-color:#ff352c"; 
             letter = "none";
               var shade = ((100-dist[x].DEM)/50)*((7-x)*.09)
             letterR = "rgba(255, 53, 44,"+shade+")";  
         }
-        else if(dist[x].DEM==50){
-            fill = "background-color:#525252;background: repeating-linear-gradient(45deg,#525252,#525252 5px,#f5f5f5 5px,#f5f5f5 10px);"; 
-            letter = "#"; 
-            letterR = "#"; 
-            
-        }
+       
         var r = 100-dist[x].DEM;
                 var s = 2500*dist[x]["Prob %"];
     document.getElementById("dist").innerHTML+="<tr><td style='background-color:"+letter+"'>"+dist[x].DEM+"</td><td style='background-color:"+letterR+"'>"+r+"</td><td>"+Math.round(dist[x]["Prob %"]*100)+"%</td><td><div id='distBar'style='width:"+s+"px;"+fill+"'></div></td></tr>";
@@ -766,7 +733,7 @@ stateHoverAnimation: 0,
         'CO': {fill: color(states[5].DemProb)},
         'CT': {fill: color(states[6].DemProb),stroke:tossup(states[6].DemProb),'stroke-width':tossupLine(states[6].DemProb)},
         'FL': {fill: color(states[7].DemProb),stroke:tossup(states[7].DemProb),'stroke-width':tossupLine(states[7].DemProb)},     
-        'GA': {fill: color(states[8].DemProb)},
+        'GA': {fill: color(states[8].DemProb),stroke:tossup(states[8].DemProb),'stroke-width':tossupLine(states[8].DemProb)},
         'HI': {fill: color(states[9].DemProb)},
         'ID': {fill: color(states[10].DemProb),stroke:tossup(states[10].DemProb),'stroke-width':tossupLine(states[10].DemProb)},
         'IL': {fill: color(states[11].DemProb),stroke:tossup(states[11].DemProb),'stroke-width':tossupLine(states[11].DemProb)},
@@ -780,7 +747,7 @@ stateHoverAnimation: 0,
         'NV': {fill: color(states[19].DemProb),stroke:tossup(states[19].DemProb),'stroke-width':tossupLine(states[19].DemProb)},
         'NH': {fill: color(states[20].DemProb)},
         'NY': {fill: color(states[21].DemProb)},
-        'NC': {fill: color(states[22].DemProb)},
+        'NC': {fill: color(states[22].DemProb),stroke:tossup(states[19].DemProb),'stroke-width':tossupLine(states[19].DemProb)},
         'ND': {fill: color(states[23].DemProb)},
         'OH': {fill: color(states[24].DemProb),stroke:tossup(states[24].DemProb),'stroke-width':tossupLine(states[24].DemProb)},
         'OK': {fill: color(states[25].DemProb)},
@@ -792,11 +759,13 @@ stateHoverAnimation: 0,
         'UT': {fill: color(states[31].DemProb)},
         'VT': {fill: color(states[32].DemProb)},
         'WA': {fill: color(states[33].DemProb)},
-        'WI': {fill: color(states[34].DemProb)}
+        'WI': {fill: color(states[34].DemProb),stroke:tossup(states[34].DemProb),'stroke-width':tossupLine(states[34].DemProb)}
   },
     stateSpecificLabelBackingStyles: {
+      'HI': {fill: color(states[9].DemProb)},
+      'CT': {fill: color(states[6].DemProb)},
       'MD': {fill: color(states[27].DemProb)},
-        'RI': {fill: color(states[27].DemProb)},
+        'VT': {fill: color(states[32].DemProb)},
         'NJ': {fill: color(states[22].DemProb)},
         'MA': {fill: color(states[15].DemProb)},
         'DE': {fill: color(states[5].DemProb)},
@@ -1092,7 +1061,7 @@ function colorS(d){
     }
 
     body{
-        font-family: HelveticaNeue,Arial,sans-serif;
+        font-family: LibreFranklin,HelveticaNeue,Arial,sans-serif;
         font-weight: bold;
         background-color: whitesmoke;
     }
