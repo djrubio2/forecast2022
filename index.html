@@ -135,6 +135,8 @@
     <button onclick="drawStates()">Forecasted Senate</button>
         
     </div>
+<h2>Chances Over Time</h2>
+    <iframe src="Chart/index.html" width="50%"height="300px"></iframe>
 
             <p>This cycle starts with roughly the same chance of a Democratic majority as last cycle. Control of the Senate rests on a knife's edge. Democrats can only afford a net loss of one seat. Likewise, Republicans need to add just one seat to win a majority.</p>
 <p>While the national environment should favor the GOP, poor candidate quality has plagued them in key races. Additionally, the <i>Dobbs</i> decision may be contributing to a more favorable environment for Democrats that once expected.</i></p>
@@ -160,16 +162,12 @@
 var dSeatAvg = 51;
 var rSeatAvg = 49;
 
-var displayProbDem =67;
+var displayProbDem =70;
 var displayProbTie =0;
 var displayProbGOP = 100 - (displayProbDem+displayProbTie);
 
 var index = 0;
 var dist = [
-  {
-    "DEM": 41,
-    "Prob %": 0
-  },
   {
     "DEM": 42,
     "Prob %": 0
@@ -188,7 +186,7 @@ var dist = [
   },
   {
     "DEM": 46,
-    "Prob %": 0.04
+    "Prob %": 0.03
   },
   {
     "DEM": 47,
@@ -196,7 +194,7 @@ var dist = [
   },
   {
     "DEM": 48,
-    "Prob %": 0.09
+    "Prob %": 0.08
   },
   {
     "DEM": 49,
@@ -208,7 +206,7 @@ var dist = [
   },
   {
     "DEM": 51,
-    "Prob %": 0.15
+    "Prob %": 0.14
   },
   {
     "DEM": 52,
@@ -224,7 +222,7 @@ var dist = [
   },
   {
     "DEM": 55,
-    "Prob %": 0.04
+    "Prob %": 0.06
   },
   {
     "DEM": 56,
@@ -248,421 +246,456 @@ var states = [
     "State": "AL",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 33.64902609,
-    "GOP": 66.35097391,
-    "Marg": -32.70194783,
+    "DEM": 32.13332941,
+    "GOP": 67.86667059,
+    "Marg": -35.73334117,
     "StateName": "Alabama",
     "DemCand": "Will Boyd",
     "RepCand": "Katie Britt",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "AL"
   },
   {
     "State": "AK",
-    "DemProb": 0.0075,
-    "RepProb": 0.9925,
-    "DEM": 41.14902609,
-    "GOP": 58.85097391,
-    "Marg": -17.70194783,
+    "DemProb": 0.0022,
+    "RepProb": 0.9978,
+    "DEM": 39.63328528,
+    "GOP": 60.36671472,
+    "Marg": -20.73342943,
     "StateName": "Alaska",
     "DemCand": "a Democrat",
     "RepCand": "a Republican",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "AK"
   },
   {
     "State": "AR",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 32.72902609,
-    "GOP": 67.27097391,
-    "Marg": -34.54194783,
+    "DEM": 31.21516347,
+    "GOP": 68.78483653,
+    "Marg": -37.56967305,
     "StateName": "Arkansas",
     "DemCand": "Natalie James",
     "RepCand": "John Boozman",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "AR"
   },
   {
     "State": "AZ",
-    "DemProb": 0.6864,
-    "RepProb": 0.3136,
-    "DEM": 51.66858768,
-    "GOP": 48.33141232,
-    "Marg": 3.337175362,
+    "DemProb": 0.7336,
+    "RepProb": 0.2664,
+    "DEM": 52.22642627,
+    "GOP": 47.77357373,
+    "Marg": 4.452852546,
     "StateName": "Arizona",
     "DemCand": "Mark Kelly",
     "RepCand": "Blake Masters",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "AZ"
   },
   {
     "State": "CA",
-    "DemProb": 0.9992,
-    "RepProb": 0.0008,
-    "DEM": 61.19902609,
-    "GOP": 38.80097391,
-    "Marg": 22.39805217,
+    "DemProb": 0.9996,
+    "RepProb": 0.0004,
+    "DEM": 62.73083897,
+    "GOP": 37.26916103,
+    "Marg": 25.46167793,
     "StateName": "California",
     "DemCand": "Alex Padilla",
     "RepCand": "Mark Meuser",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "CA"
   },
   {
     "State": "CO",
-    "DemProb": 0.8852,
-    "RepProb": 0.1148,
-    "DEM": 54.26691998,
-    "GOP": 45.73308002,
-    "Marg": 8.533839967,
+    "DemProb": 0.8449,
+    "RepProb": 0.1551,
+    "DEM": 53.66601341,
+    "GOP": 46.33398659,
+    "Marg": 7.332026812,
     "StateName": "Colorado",
     "DemCand": "Michael Bennet",
     "RepCand": "Joe O'Dea",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "CO"
   },
   {
     "State": "CT",
-    "DemProb": 0.9826,
-    "RepProb": 0.0174,
-    "DEM": 57.44326304,
-    "GOP": 42.55673696,
-    "Marg": 14.88652609,
+    "DemProb": 0.9884,
+    "RepProb": 0.0116,
+    "DEM": 57.92956391,
+    "GOP": 42.07043609,
+    "Marg": 15.85912782,
     "StateName": "Connecticut",
     "DemCand": "Blumenthal",
     "RepCand": "Levy",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "CT"
   },
   {
     "State": "FL",
-    "DemProb": 0.2533,
-    "RepProb": 0.7467,
-    "DEM": 47.55712935,
-    "GOP": 52.44287065,
-    "Marg": -4.885741304,
+    "DemProb": 0.3234,
+    "RepProb": 0.6766,
+    "DEM": 48.33136474,
+    "GOP": 51.66863526,
+    "Marg": -3.337270517,
     "StateName": "Florida",
     "DemCand": "Demmings",
     "RepCand": "Rubio",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "FL"
   },
   {
     "State": "GA",
-    "DemProb": 0.4422,
-    "RepProb": 0.5578,
-    "DEM": 49.36613142,
-    "GOP": 50.63386858,
-    "Marg": -1.26773717,
+    "DemProb": 0.4461,
+    "RepProb": 0.5539,
+    "DEM": 49.49573896,
+    "GOP": 50.50426104,
+    "Marg": -1.008522088,
     "StateName": "Georgia",
     "DemCand": "Warnock",
     "RepCand": "Walker",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "GA"
   },
   {
     "State": "HI",
     "DemProb": 1,
     "RepProb": 0,
-    "DEM": 69.61902609,
-    "GOP": 30.38097391,
-    "Marg": 39.23805217,
+    "DEM": 70.78892826,
+    "GOP": 29.21107174,
+    "Marg": 41.57785652,
     "StateName": "Hawaii",
     "DemCand": "Schatz",
     "RepCand": "McDermott",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "HI"
   },
   {
     "State": "ID",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 27.64152609,
-    "GOP": 72.35847391,
-    "Marg": -44.71694783,
+    "DEM": 26.35290767,
+    "GOP": 73.64709233,
+    "Marg": -47.29418465,
     "StateName": "Idaho",
     "DemCand": "Roth",
     "RepCand": "Crapo",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "ID"
   },
   {
     "State": "IL",
-    "DemProb": 0.9916,
-    "RepProb": 0.0084,
-    "DEM": 58.48284638,
-    "GOP": 41.51715362,
-    "Marg": 16.96569275,
+    "DemProb": 0.9945,
+    "RepProb": 0.0055,
+    "DEM": 59.13022384,
+    "GOP": 40.86977616,
+    "Marg": 18.26044768,
     "StateName": "Illinois",
     "DemCand": "Duckworth",
     "RepCand": "Salvi",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "IL"
   },
   {
     "State": "IN",
-    "DemProb": 0.0021,
-    "RepProb": 0.9979,
-    "DEM": 39.47917217,
-    "GOP": 60.52082783,
-    "Marg": -21.04165565,
+    "DemProb": 0.0006,
+    "RepProb": 0.9994,
+    "DEM": 38.4558939,
+    "GOP": 61.5441061,
+    "Marg": -23.08821221,
     "StateName": "Indiana",
     "DemCand": "McDermott",
     "RepCand": "Young",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "IN"
   },
   {
     "State": "IA",
-    "DemProb": 0.0391,
-    "RepProb": 0.9609,
-    "DEM": 43.59634203,
-    "GOP": 56.40365797,
-    "Marg": -12.80731594,
+    "DemProb": 0.0476,
+    "RepProb": 0.9524,
+    "DEM": 43.9152577,
+    "GOP": 56.0847423,
+    "Marg": -12.16948461,
     "StateName": "Iowa",
     "DemCand": "Franken",
     "RepCand": "Grassley",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "IA"
   },
   {
     "State": "KS",
-    "DemProb": 0.0001,
-    "RepProb": 0.9999,
-    "DEM": 36.24592217,
-    "GOP": 63.75407783,
-    "Marg": -27.50815565,
+    "DemProb": 0,
+    "RepProb": 1,
+    "DEM": 35.84637294,
+    "GOP": 64.15362706,
+    "Marg": -28.30725412,
     "StateName": "Kansas",
     "DemCand": "Holland",
     "RepCand": "Moran",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "KS"
   },
   {
     "State": "KY",
-    "DemProb": 0.0008,
-    "RepProb": 0.9992,
-    "DEM": 39.05017217,
-    "GOP": 60.94982783,
-    "Marg": -21.89965565,
+    "DemProb": 0.0004,
+    "RepProb": 0.9996,
+    "DEM": 37.97384352,
+    "GOP": 62.02615648,
+    "Marg": -24.05231295,
     "StateName": "Kentucky",
     "DemCand": "Booker",
     "RepCand": "Paul",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "KY"
   },
   {
     "State": "LA",
-    "DemProb": 0.0003,
-    "RepProb": 0.9997,
-    "DEM": 37.91667217,
-    "GOP": 62.08332783,
-    "Marg": -24.16665565,
+    "DemProb": 0.0002,
+    "RepProb": 0.9998,
+    "DEM": 36.79920853,
+    "GOP": 63.20079147,
+    "Marg": -26.40158293,
     "StateName": "Louisana",
     "DemCand": "a Democrat",
     "RepCand": "Kennedy",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "LA"
   },
   {
     "State": "MD",
-    "DemProb": 0.9994,
-    "RepProb": 0.0006,
-    "DEM": 62.04902609,
-    "GOP": 37.95097391,
-    "Marg": 24.09805217,
+    "DemProb": 0.9998,
+    "RepProb": 0.0002,
+    "DEM": 63.64148804,
+    "GOP": 36.35851196,
+    "Marg": 27.28297609,
     "StateName": "Maryland",
     "DemCand": "Van Hollen",
     "RepCand": "Chaffee",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "MD"
   },
   {
     "State": "MO",
-    "DemProb": 0.0268,
-    "RepProb": 0.9732,
-    "DEM": 43.00771107,
-    "GOP": 56.99228893,
-    "Marg": -13.98457787,
+    "DemProb": 0.027,
+    "RepProb": 0.973,
+    "DEM": 43.08128024,
+    "GOP": 56.91871976,
+    "Marg": -13.83743952,
     "StateName": "Missouri",
     "DemCand": "Busch Valentine",
     "RepCand": "Schmitt",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "MO"
   },
   {
     "State": "NV",
-    "DemProb": 0.5706,
-    "RepProb": 0.4294,
-    "DEM": 50.53647188,
-    "GOP": 49.46352812,
-    "Marg": 1.072943768,
+    "DemProb": 0.6314,
+    "RepProb": 0.3686,
+    "DEM": 51.21583852,
+    "GOP": 48.78416148,
+    "Marg": 2.431677049,
     "StateName": "Nevada",
     "DemCand": "Cortez Masto",
     "RepCand": "Laxalt",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "NV"
   },
   {
     "State": "NH",
-    "DemProb": 0.623,
-    "RepProb": 0.377,
-    "DEM": 51.0830087,
-    "GOP": 48.9169913,
-    "Marg": 2.166017391,
+    "DemProb": 0.7491,
+    "RepProb": 0.2509,
+    "DEM": 52.44235265,
+    "GOP": 47.55764735,
+    "Marg": 4.884705307,
     "StateName": "New Hampshire",
     "DemCand": "Hassan",
     "RepCand": "Bouldoc",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "NH"
   },
   {
     "State": "NY",
     "DemProb": 0.9992,
     "RepProb": 0.0008,
-    "DEM": 61.53939758,
-    "GOP": 38.46060242,
-    "Marg": 23.07879517,
+    "DEM": 61.90485491,
+    "GOP": 38.09514509,
+    "Marg": 23.80970982,
     "StateName": "New York",
     "DemCand": "Schumer",
     "RepCand": "Pinion",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "NY"
   },
   {
     "State": "NC",
-    "DemProb": 0.4863,
-    "RepProb": 0.5137,
-    "DEM": 49.78793292,
-    "GOP": 50.21206708,
-    "Marg": -0.4241341615,
+    "DemProb": 0.4891,
+    "RepProb": 0.5109,
+    "DEM": 49.9197438,
+    "GOP": 50.0802562,
+    "Marg": -0.1605123985,
     "StateName": "North Carolina",
     "DemCand": "Beasley",
     "RepCand": "Budd",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "NC"
   },
   {
     "State": "ND",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 22.75652609,
-    "GOP": 77.24347391,
-    "Marg": -54.48694783,
+    "DEM": 21.98875388,
+    "GOP": 78.01124612,
+    "Marg": -56.02249224,
     "StateName": "North Dakota",
     "DemCand": "Christiansen",
     "RepCand": "Hoevan",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "ND"
   },
   {
     "State": "OH",
-    "DemProb": 0.4695,
-    "RepProb": 0.5305,
-    "DEM": 49.60079255,
-    "GOP": 50.39920745,
-    "Marg": -0.7984149068,
+    "DemProb": 0.4524,
+    "RepProb": 0.5476,
+    "DEM": 49.47568433,
+    "GOP": 50.52431567,
+    "Marg": -1.048631346,
     "StateName": "Ohio",
     "DemCand": "Ryan",
     "RepCand": "Vance",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "OH"
   },
   {
     "State": "OK",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 18.42402609,
-    "GOP": 81.57597391,
-    "Marg": -63.15194783,
+    "DEM": 18.02842826,
+    "GOP": 81.97157174,
+    "Marg": -63.94314348,
     "StateName": "Oklaholma",
     "DemCand": "a Democrat",
     "RepCand": "Lankford",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "OK"
   },
   {
     "State": "OK1",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 29.84902609,
-    "GOP": 70.15097391,
-    "Marg": -40.30194783,
+    "DEM": 29.27817616,
+    "GOP": 70.72182384,
+    "Marg": -41.44364768,
     "StateName": "Oklaholma Special",
     "DemCand": "Mullin",
     "RepCand": "Horn",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "OK1"
   },
   {
     "State": "OR",
-    "DemProb": 0.9806,
-    "RepProb": 0.0194,
-    "DEM": 57.45402609,
-    "GOP": 42.54597391,
-    "Marg": 14.90805217,
+    "DemProb": 0.9919,
+    "RepProb": 0.0081,
+    "DEM": 58.77664054,
+    "GOP": 41.22335946,
+    "Marg": 17.55328108,
     "StateName": "Oregon",
     "DemCand": "Wyden",
     "RepCand": "Perkins",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "OR"
   },
   {
     "State": "PA",
-    "DemProb": 0.8071,
-    "RepProb": 0.1929,
-    "DEM": 53.01669428,
-    "GOP": 46.98330572,
-    "Marg": 6.033388566,
+    "DemProb": 0.823,
+    "RepProb": 0.177,
+    "DEM": 53.33625078,
+    "GOP": 46.66374922,
+    "Marg": 6.672501556,
     "StateName": "Pennsylvania",
     "DemCand": "Fetterman",
     "RepCand": "Oz",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "PA"
   },
   {
     "State": "SC",
-    "DemProb": 0.0012,
-    "RepProb": 0.9988,
-    "DEM": 38.62417217,
-    "GOP": 61.37582783,
-    "Marg": -22.75165565,
+    "DemProb": 0.0001,
+    "RepProb": 0.9999,
+    "DEM": 37.37912684,
+    "GOP": 62.62087316,
+    "Marg": -25.24174632,
     "StateName": "South Carolina",
     "DemCand": "Matthews",
     "RepCand": "Scott",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "SC"
   },
   {
     "State": "SD",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 29.75954717,
-    "GOP": 70.24045283,
-    "Marg": -40.48090565,
+    "DEM": 28.86049943,
+    "GOP": 71.13950057,
+    "Marg": -42.27900113,
     "StateName": "South Dakota",
     "DemCand": "Thune",
     "RepCand": "Bengs",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "SD"
   },
   {
     "State": "UT",
-    "DemProb": 0.0169,
-    "RepProb": 0.9831,
-    "DEM": 42.03980522,
-    "GOP": 57.96019478,
-    "Marg": -15.92038957,
+    "DemProb": 0.0137,
+    "RepProb": 0.9863,
+    "DEM": 42.04198605,
+    "GOP": 57.95801395,
+    "Marg": -15.9160279,
     "StateName": "Utah",
     "DemCand": "McMullin",
     "RepCand": "Lee",
-    "Incumbent": "R"
+    "Incumbent": "R",
+    "": "UT"
   },
   {
     "State": "VT",
-    "DemProb": 0.9994,
-    "RepProb": 0.0006,
-    "DEM": 62.19902609,
-    "GOP": 37.80097391,
-    "Marg": 24.39805217,
+    "DemProb": 1,
+    "RepProb": 0,
+    "DEM": 63.80187665,
+    "GOP": 36.19812335,
+    "Marg": 27.6037533,
     "StateName": "Vermont",
     "DemCand": "Welch",
     "RepCand": "Malloy",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "VT"
   },
   {
     "State": "WA",
-    "DemProb": 0.9224,
-    "RepProb": 0.0776,
-    "DEM": 55.0550195,
-    "GOP": 44.9449805,
-    "Marg": 10.11003901,
+    "DemProb": 0.8036,
+    "RepProb": 0.1964,
+    "DEM": 52.96279893,
+    "GOP": 47.03720107,
+    "Marg": 5.92559786,
     "StateName": "Washington",
     "DemCand": "Murray",
     "RepCand": "Smiley",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "WA"
   },
   {
     "State": "WI",
-    "DemProb": 0.5144,
-    "RepProb": 0.4856,
-    "DEM": 50.08538152,
-    "GOP": 49.91461848,
-    "Marg": 0.1707630435,
+    "DemProb": 0.5043,
+    "RepProb": 0.4957,
+    "DEM": 50.02157737,
+    "GOP": 49.97842263,
+    "Marg": 0.04315474203,
     "StateName": "Wisconsin",
     "DemCand": "Barnes",
     "RepCand": "Johnson",
-    "Incumbent": "D"
+    "Incumbent": "D",
+    "": "WI"
   }
 ];
 var states2 = copy(states);
@@ -1212,6 +1245,9 @@ width:10.55%;
         border:1px solid whitesmoke;
         color:black;
     }
+    iframe{
+      border: none;
+    }
     #GA{
         height:20px;
         width:20px;
@@ -1266,9 +1302,12 @@ text-decoration: none;
     }
     .blockD{
         background-color: rgba(4, 119, 218, 0.25);
+        outline:1px solid whitesmoke;
     }
     .blockR{
         background-color: rgba(212, 50, 1, 0.25);
+        outline:1px solid whitesmoke;
+
     }
      #maj{
         height:30px;
