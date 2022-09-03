@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,700|Inconsolata:400,700');
+
+body { font: 14px HelveticaNeu,'Arimo';
+font-weight:bold;
+}
+
+path { 
+	stroke: grey;
+	stroke-width: 3;
+	fill: none;
+}
+#lepenLine{
+	stroke:#ff352c;
+}
+#lepenText{
+	fill:#ff352c;
+}
+
+#macronLine{
+	stroke: #2798da;
+}
+#macronText{
+	fill: #2798da;
+}
+#zemmourLine{
+	stroke: #5c504f;
+}
+#zemmourText{
+	fill: #5c504f;
+}
+#pecresseLine{
+	stroke: rgb(30, 154, 243);
+}
+#pecresseText{
+	fill: rgb(30, 154, 243);
+}
+#melenchonLine{
+	stroke:rgb(255, 85, 77);
+}
+#melenchonText{
+	fill:rgb(255, 85, 77);
+}
+.axis path,
+.axis line {
+	fill: none;
+	stroke: grey;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.7;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+</style>
+<body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<script>
+var day =2;
+var	margin = {top: 30, right: 100, bottom: 30, left: 50},
+	width = 400 - margin.left - margin.right,
+	height = 270 - margin.top - margin.bottom;
+
+var	parseTime = d3.timeParse("%m/%d/%Y");
+
+var x = d3.scaleTime().range([0, day]);
+var	y = d3.scaleLinear().range([height, 0]);
+
+var	xAxis =d3.axisBottom().scale(x)
+	.ticks(0);
+
+var	yAxis = d3.axisLeft().scale(y)
+	.ticks(3);
+
+var	valueline = d3.line()
+    .x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.DemSeats); });
+	
+var	valueline2 = d3.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.GOPSeats); });
+var	valueline3 = d3.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.Zemmour); })	
+var	pecresseline = d3.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.Pecresse); })
+var	melenchonline = d3.line()
+	.x(function(d) { return x(d.date); })
+	.y(function(d) { return y(d.Melenchon); })
+var	svg = d3.select("body")
+	.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	    .append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+function make_x_gridlines() {		
+    return d3.axisBottom(x)
+        .ticks(0)
+}
+
+// gridlines in y axis function
+function make_y_gridlines() {		
+    return d3.axisLeft(y)
+        .ticks(3)
+}
+
+// Get the data
+d3.csv("data.csv", function(error, data) {
+	data.forEach(function(d) {
+		d.date = parseTime(d.date);
+		d.DemSeats = +d.DemSeats;
+		d.GOPSeats = +d.GOPSeats;
+
+	});
+
+	// Scale the range of the data
+	x.domain(d3.extent(data, function(d) { return d.date; }));
+	y.domain([40, d3.max(data, function(d) { return Math.max(40, 60); })]);
+d3.axisLeft()
+    .tickFormat(d => d + "%")
+ svg.append("g")			
+      .attr("class", "grid")
+      .attr("transform", "translate(0," + height + ")")
+      .call(make_x_gridlines()
+          .tickSize(-height)
+          .tickFormat("")
+      )
+
+  // add the Y gridlines
+  svg.append("g")			
+      .attr("class", "grid")
+      .call(make_y_gridlines()
+          .tickSize(-width)
+          .tickFormat("")
+      )
+      
+	svg.append("path")		// Add the valueline path.
+		.attr("class", "line")
+		.attr("id", "macronLine")
+		.attr("d", valueline(data));
+
+	svg.append("path")		// Add the valueline2 path.
+		.attr("class", "line")
+		.attr("id", "lepenLine")
+		.attr("d", valueline2(data));
+	svg.append("path")		// Add the valueline2 path.
+		.attr("class", "line")
+		.attr("id", "zemmourLine")
+		.attr("d", valueline3(data));
+	svg.append("path")		// Add the valueline2 path.
+		.attr("class", "line")
+		.attr("id", "pecresseLine")
+		.attr("d", pecresseline(data));	
+	svg.append("path")		// Add the valueline2 path.
+		.attr("class", "line")
+		.attr("id", "melenchonLine")
+		.attr("d", melenchonline(data));	
+
+	svg.append("g")			// Add the X Axis
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+
+	svg.append("g")			// Add the Y Axis
+		.attr("class", "y axis")
+		.call(yAxis);
+	
+		svg.append("line")
+	    .style("stroke", "black")  // colour the line
+        .attr("x1", 250)     // x position of the first end of the line
+        .attr("y1", 0)      // y position of the first end of the line
+        .attr("x2", 250)     // x position of the second end of the line
+        .attr("y2", 215);    // y position of the second end of the line
+
+	svg.append("circle")
+	    .attr("cx", day)
+        .attr("cy", y(data[data.length-1].GOPSeats)) 
+        .attr("r", 4)
+		.attr("id", "lepenText")
+        .style("stroke","white");
+ svg.append("circle")
+	    .attr("cx", day)
+        .attr("cy", y(data[data.length-1].DemSeats)) 
+        .attr("r", 4)
+		.attr("id", "macronText")
+        .style("stroke","white");
+svg.append("text")
+		.attr("transform", "translate(" + (day+5) + "," + y(data[data.length-1].GOPSeats) + ")")
+		.attr("dy", ".35em")
+		.attr("text-anchor", "start")
+		.attr("id", "lepenText")
+		.text(data[data.length-1].GOPSeats+"");
+svg.append("text")
+	.attr("transform", "translate(" + (day+5) + "," + y(data[data.length-1].DemSeats) + ")")
+	.attr("dy", ".35em")
+	.attr("text-anchor", "start")
+	.attr("id", "macronText")
+	.text(data[data.length-1].DemSeats+"");
+
+	svg.append("text")
+	    .style("font-size", "9pt")  // colour the line
+		.text("Election Day")
+        .attr("x", 210)     // x position of the first end of the line
+        .attr("y",230 );  
+console.log(data.length-1);
+console.log(data[data.length-1].GOP);
+console.log(data[data.length-1].Dem);
+
+console.log(y(data[0].date));
+
+
+});
+
+</script>
