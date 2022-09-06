@@ -12,6 +12,9 @@ path {
 	stroke-width: 3;
 	fill: none;
 }
+#today{
+	text-transform: uppercase;
+}
 #lepenLine{
 	stroke:#ff352c;
 }
@@ -65,7 +68,7 @@ path {
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script>
-var day =7.4;
+var day =18.4;
 var	margin = {top: 30, right: 100, bottom: 30, left: 50},
 	width = 400 - margin.left - margin.right,
 	height = 270 - margin.top - margin.bottom;
@@ -212,15 +215,21 @@ svg.append("text")
 	    .style("font-size", "9pt")  // colour the line
 		.text("Election Day")
         .attr("x", 210)     // x position of the first end of the line
-        .attr("y",230 );
+        .attr("y",225 );
+	svg.append("text")
+	    .style("font-size", "9pt")  // colour the line
+		.text("NOV 8")
+        .attr("x", 230)     // x position of the first end of the line
+        .attr("y",240 );
 
-	formatDate = d3.timeFormat("%-d %b")
+	formatDate = d3.timeFormat("%b %-d")
 
 	svg.append("text")
 	    .style("font-size", "9pt")  // colour the line
 		.text(formatDate(data[data.length-1].date))
         .attr("x", day)     // x position of the first end of the line
-        .attr("y",230);   
+        .attr("y",230)   
+		.attr("id","today");
 console.log(data.length-1);
 console.log(data[data.length-1].GOP);
 console.log(data[data.length-1].Dem);
