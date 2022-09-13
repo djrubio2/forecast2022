@@ -1,188 +1,227 @@
 <head>
-<title>2022 Senate Forecast</title>
-    <meta name="viewport" content="initial-scale=1.0">
+  <title>2022 Senate Forecast</title>
+  <meta name="viewport" content="initial-scale=1.0">
 
-<script src="jquery.js"></script>
+  <script src="jquery.js"></script>
   <script src="raphael.js"></script>
-    <script src="odometer.js"></script>
-<link rel="stylesheet" href="odometer-theme-default.css" />
+  <script src="odometer.js"></script>
+  <link rel="stylesheet" href="odometer-theme-default.css" />
 
   <script src="jquery.usmap.js"></script>
 </head>
 
 <body>
-<div id="container">
+  <div id="container">
 
     <div id="topline">
-      <div id="top-container"> 
+      <div id="top-container">
         <h1 style="text-align:left">2022 Senate Forecast 🗳</h1>
-    <span style="font-family: Inconsolata;text-transform: uppercase">Last Updated 9-9-22</span>
-<hr>
+        <span style="font-family: Inconsolata;text-transform: uppercase">Last Updated 9-12-22</span>
+        <hr>
 
-            <h3 style="text-align: left">Chance of winning a majority:</h3>
+        <h3 style="text-align: left">Chance of winning a majority:</h3>
         <div id="random">
         </div>
         <div class="dem">
-            <span style="color:#292929;font-size: 10pt;text-align:left;">Democrats:</span>
-            <br>
-            <span id="toplineD" class="odometer">50</span><span>%</span>
-        </div>
-    <div class="gop">
-        <span style="color:#292929;font-size: 10pt;text-align:left;">Republicans:</span>
-        <br>
-        <span id="toplineR" class="odometer">50</span><span>%</span>
-    </div>
-    <div id="bar-container">
-    <div id="bar">
-        <div id="demProb"></div>
-        <div id="tieProb"></div>
-        <div id="repProb"></div>
-    </div>
-    <div class="dem">
-        <span><span id="dSeatAvg" class="odometer">50</span></span>
-        <br>
-        <span style="color:#292929;font-size: 10pt;text-align:left;">Average Seats</span>
-        </div>
-    <div class="gop">
-        <span><span id="rSeatAvg" class="odometer">50</span></span>
-        <br>
-        <span style="color:#292929;font-size: 10pt;text-align:left;">Average Seats</span>
-    </div>
-        <br>
-        </div>
-      </div>
-      </div>
-        <div id="info-container">
-        
-<div id="infobox" style="display: none">
-    <span id="state"></span><div id="rating"></div>
-    <div id="info" >
-        <span style="color:#292929;font-size: 10pt;text-align:left;">Chance of winning:</span>
-        <br>
-        <div class="dem">
-            <span id="probD"></span>
+          <span style="color:#292929;font-size: 10pt;text-align:left;">Democrats:</span>
+          <br>
+          <span id="toplineD" class="odometer">50</span><span>%</span>
         </div>
         <div class="gop">
+          <span style="color:#292929;font-size: 10pt;text-align:left;">Republicans:</span>
+          <br>
+          <span id="toplineR" class="odometer">50</span><span>%</span>
+        </div>
+        <div id="bar-container">
+          <div id="bar">
+            <div id="demProb"></div>
+            <div id="tieProb"></div>
+            <div id="repProb"></div>
+          </div>
+          <div class="dem">
+            <span><span id="dSeatAvg" class="odometer">50</span></span>
+            <br>
+            <span style="color:#292929;font-size: 10pt;text-align:left;">Average Seats</span>
+          </div>
+          <div class="gop">
+            <span><span id="rSeatAvg" class="odometer">50</span></span>
+            <br>
+            <span style="color:#292929;font-size: 10pt;text-align:left;">Average Seats</span>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div id="info-container">
+
+      <div id="infobox" style="display: none">
+        <span id="state"></span>
+        <div id="rating"></div>
+        <div id="info">
+          <span style="color:#292929;font-size: 10pt;text-align:left;">Chance of winning:</span>
+          <br>
+          <div class="dem">
+            <span id="probD"></span>
+          </div>
+          <div class="gop">
             <span id="probR"></span>
+          </div>
         </div>
-    </div>
-    <div id="bar2">
-    </div>
-    <span id="currentD"></span>
-    <span style="color:#292929;font-size: 10pt;text-align:left;" id="dCand" ></span>
-    <span id="currentR"></span>
+        <div id="bar2">
+        </div>
+        <span id="currentD"></span>
+        <span style="color:#292929;font-size: 10pt;text-align:left;" id="dCand"></span>
+        <span id="currentR"></span>
 
-    <span style="color:#292929;font-size: 10pt;text-align:right;float:right" id="rCand"></span>
-    <hr>
+        <span style="color:#292929;font-size: 10pt;text-align:right;float:right" id="rCand"></span>
+        <hr>
 
-    <div style="text-align: center">
-        <span style="color:#292929;font-size: 10pt;text-align:left;">Est. Vote Margin:</span>
+        <div style="text-align: center">
+          <span style="color:#292929;font-size: 10pt;text-align:left;">Est. Vote Margin:</span>
+          <br>
+
+          <span id="margin"></span>
+        </div>
+        <table id="score">
+          <tr>
+            <th>Candidate</th>
+            <th>Vote</th>
+          </tr>
+          <tr>
+            <td id="demCand"></td>
+            <td class="vote-box">
+              <div width="100%">
+                <div id="demRange">
+              <div id="demVote"></div>
+            </div>
+            
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td id="repCand"></td>
+            <td>
+              <div id="repRange">
+              <div id="repVote"></div>
+            </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="map-display">
+      <div id="map" style="width:100%; height:500px;" onmouseout="hideInfo()"></div>
+
+      <div id="keybox">
+        <span style="text-align: left">Key</span>
+        <table id="key">
+          <tr>
+            <th>>50%</th>
+            <th>>60%</th>
+            <th>>70%</th>
+            <th>>80%</th>
+            <th>>90%</th>
+          </tr>
+          <tr>
+            <td style="border:2px solid;background-color: #dceaf8"></td>
+            <td style="background-color: #b9d4f1"></td>
+            <td style="background-color: #93c0e9"></td>
+            <td style="background-color: #68ace2"></td>
+            <td style="background-color: #2798da"></td>
+          </tr>
+          <tr>
+            <td style="border:2px solid;background-color: #ffdfd6"></td>
+            <td style="background-color: #ffbeae"></td>
+            <td style="background-color: #ff9a85"></td>
+            <td style="background-color: #ff715b"></td>
+            <td style="background-color: #ff352c"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="lower">
+      <div class="box">
+        <h2>Likely Senate Composition</h2>
+        <div id="states-container" style="text-align:center;">
+          <span>50 seats</span>
+          <br>
+          <div id="up"></div>
+        </div>
+        <div class="dem">
+          <span style="font-size: 12pt" id="seatLabelD">↑ 36 Dem seats not up</span>
+        </div>
+        <div class="gop">
+          <span style="font-size: 12pt" id="seatLabelR">30 GOP seats not up ↑</span>
+        </div>
+
         <br>
-        
-        <span id="margin"></span>
-    </div>
+        <br>
+      
+        <br>
+        <div style="text-align:center;display: inline-block;width: 100%;padding: 5px;">
+          <button onclick="drawCurrentStates()">Current Senate</button>
+          <button onclick="drawStates()">Forecasted Senate</button>
 
-</div>  
         </div>
-<div id="map-display">
-        <div id="map" style="width:100%; height:500px;" onmouseout="hideInfo()"></div>
-       
-        <div id="keybox">
-          <span style="text-align: left">Key</span>
-          <table id ="key">
-            <tr>
-              <th>>50%</th>
-              <th>>60%</th>
-              <th>>70%</th>
-              <th>>80%</th>
-              <th>>90%</th>
-            </tr>   
-            <tr>
-              <td style="border:2px solid;background-color: #dceaf8"></td>
-              <td style="background-color: #b9d4f1"></td>
-              <td style="background-color: #93c0e9"></td>
-              <td style="background-color: #68ace2"></td>
-              <td style="background-color: #2798da"></td>
-            </tr>
-            <tr>
-              <td style="border:2px solid;background-color: #ffdfd6"></td>
-              <td style="background-color: #ffbeae"></td>
-              <td style="background-color: #ff9a85"></td>
-              <td style="background-color: #ff715b"></td>
-              <td style="background-color: #ff352c"></td>
-            </tr> 
-          </table>
-        </div>
-</div>
-<div id="lower">
- <div class="box">
-<h2>Likely Senate Composition</h2>
-<div id="states-container" style="text-align:center;">
-    <span>50 seats</span>
-    <br>
-    <div id="up"></div>
-</div>
-<div class="dem">
-    <span style="font-size: 12pt" id="seatLabelD">↑ 36 Dem seats not up</span>
-</div>
-<div class="gop">
-    <span style="font-size: 12pt" id="seatLabelR">30 GOP seats not up ↑</span>
-</div>
-    
-<br>
-<br>
-    <div style="text-align:center;display: inline-block;width: 100%;padding: 5px;">
-        <button onclick="drawCurrentStates()">Current Senate</button>
-    <button onclick="drawStates()">Forecasted Senate</button>
-        
+      </div>
+
+      <h2>Chance of Winning Over Time</h2>
+      <iframe src="chart.html" width="100%" height="300px"></iframe>
+      <div id="para">
+        <p>This cycle starts with roughly the same chance of a Democratic majority as last cycle. Control of the Senate
+          rests on a knife's edge. Democrats can only afford a net loss of one seat. Likewise, Republicans need to add
+          just one seat to win a majority.</p>
+        <p>While the national environment should favor the GOP, poor candidate quality has plagued them in key races.
+          Additionally, the <i>Dobbs</i> decision may be contributing to a more favorable environment for Democrats that
+          once expected.</i></p>
+        <h2>About</h2>
+        <p>This Senate forecast combines polling and fundamentals such as fundraising to predict the vote share. It then
+          simulates 10,000 possible different outcomes.</p>
+      </div>
+      <h2>Possible Outcomes</h2>
+      <table id="dist">
+        <tr>
+          <th>D</th>
+          <th>R</th>
+          <th>Prob</th>
+          <th style="width:350px;"></th>
+        </tr>
+      </table>
+      <h2>Notes</h2>
+      <p>[1] Democrats currently control the Vice-Presidency, allowing them to split tied votes. This means the GOP will
+        need to win an outright majority of 51 seats.</p>
+      <p>[2] Evan McMullin of <span onmouseover="Georgia(31)" onmouseout="hideInfo()" id="tag">Utah</span> is an
+        independent who has stated he will not caucus with either party.</p>
+      <p>[3] In Alaska, four different candidates will face off using Ranked Choice Voting (RCV). The model gives the
+        odds a Republican or Democrat will win, as there are multiple Republicans in the race.</p>
     </div>
   </div>
-
-<h2>Chance of Winning Over Time</h2>
-    <iframe src="chart.html" width="100%"height="300px"></iframe>
-<div id="para">
-            <p>This cycle starts with roughly the same chance of a Democratic majority as last cycle. Control of the Senate rests on a knife's edge. Democrats can only afford a net loss of one seat. Likewise, Republicans need to add just one seat to win a majority.</p>
-<p>While the national environment should favor the GOP, poor candidate quality has plagued them in key races. Additionally, the <i>Dobbs</i> decision may be contributing to a more favorable environment for Democrats that once expected.</i></p>
-<h2>About</h2>
-    <p>This Senate forecast combines polling and fundamentals such as fundraising to predict the vote share. It then simulates 10,000 possible different outcomes.</p>         
-  </div>
-    <h2>Possible Outcomes</h2>
-<table id ="dist">
-  <tr>
-    <th>D</th>
-    <th>R</th>
-    <th>Prob</th>
-    <th style="width:350px;"></th>
-  </tr>       
-</table>
-<h2>Notes</h2>
-    <p>[1] Democrats currently control the Vice-Presidency, allowing them to split tied votes. This means the GOP will need to win an outright majority of 51 seats.</p>
-    <p>[2] Evan McMullin of <span onmouseover="Georgia(31)" onmouseout="hideInfo()" id="tag">Utah</span> is an independent who has stated he will not caucus with either party.</p>
-    <p>[3] In Alaska, four different candidates will face off using Ranked Choice Voting (RCV). The model gives the odds a Republican or Democrat will win, as there are multiple Republicans in the race.</p>
-    </div>
-</div>
 </body>
 <script>
-var dSeatAvg = 51;
-var rSeatAvg = 49;
+  var dSeatAvg = 51;
+  var rSeatAvg = 49;
 
-var displayProbDem =68;
-var displayProbTie =0;
-var displayProbGOP = 100 - (displayProbDem+displayProbTie);
+  var displayProbDem = 69;
+  var displayProbTie = 0;
+  var displayProbGOP = 100 - (displayProbDem + displayProbTie);
 
-var index = 0;
-var dist = [
+  var index = 0;
+  var dist = [
   {
-    "DEM": 42,
+    "DEM": 41,
     "Prob %": 0
   },
   {
-    "DEM": 43,
+    "DEM": 42,
     "Prob %": 0.001
   },
   {
+    "DEM": 43,
+    "Prob %": 0.002
+  },
+  {
     "DEM": 44,
-    "Prob %": 0.008
+    "Prob %": 0.009
   },
   {
     "DEM": 45,
@@ -190,43 +229,43 @@ var dist = [
   },
   {
     "DEM": 46,
-    "Prob %": 0.037
+    "Prob %": 0.038
   },
   {
     "DEM": 47,
-    "Prob %": 0.06
+    "Prob %": 0.055
   },
   {
     "DEM": 48,
-    "Prob %": 0.081
+    "Prob %": 0.084
   },
   {
     "DEM": 49,
-    "Prob %": 0.109
+    "Prob %": 0.102
   },
   {
     "DEM": 50,
-    "Prob %": 0.125
+    "Prob %": 0.121
   },
   {
     "DEM": 51,
-    "Prob %": 0.135
+    "Prob %": 0.138
   },
   {
     "DEM": 52,
-    "Prob %": 0.131
+    "Prob %": 0.143
   },
   {
     "DEM": 53,
-    "Prob %": 0.123
+    "Prob %": 0.121
   },
   {
     "DEM": 54,
-    "Prob %": 0.095
+    "Prob %": 0.09
   },
   {
     "DEM": 55,
-    "Prob %": 0.054
+    "Prob %": 0.057
   },
   {
     "DEM": 56,
@@ -245,14 +284,14 @@ var dist = [
     "Prob %": 0.001
   }
 ];
-var states = [
+  var states = [
   {
     "State": "AL",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 30.80289107,
-    "GOP": 69.19710893,
-    "Marg": -38.39421786,
+    "DEM": 30.96,
+    "GOP": 69.04,
+    "Marg": -38.07323597,
     "StateName": "Alabama",
     "DemCand": "Will Boyd",
     "RepCand": "Katie Britt",
@@ -261,11 +300,11 @@ var states = [
   },
   {
     "State": "AK",
-    "DemProb": 0.0007,
-    "RepProb": 0.9993,
-    "DEM": 38.30280281,
-    "GOP": 61.69719719,
-    "Marg": -23.39439438,
+    "DemProb": 0.0011,
+    "RepProb": 0.9989,
+    "DEM": 38.46,
+    "GOP": 61.54,
+    "Marg": -23.07341249,
     "StateName": "Alaska",
     "DemCand": "a Democrat",
     "RepCand": "a Republican",
@@ -276,9 +315,9 @@ var states = [
     "State": "AR",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 29.72655919,
-    "GOP": 70.27344081,
-    "Marg": -40.54688162,
+    "DEM": 29.89,
+    "GOP": 70.11,
+    "Marg": -40.22589973,
     "StateName": "Arkansas",
     "DemCand": "Natalie James",
     "RepCand": "John Boozman",
@@ -287,11 +326,11 @@ var states = [
   },
   {
     "State": "AZ",
-    "DemProb": 0.6929,
-    "RepProb": 0.3071,
-    "DEM": 51.99417582,
-    "GOP": 48.00582418,
-    "Marg": 3.988351637,
+    "DemProb": 0.7055,
+    "RepProb": 0.2945,
+    "DEM": 52.07,
+    "GOP": 47.93,
+    "Marg": 4.130699112,
     "StateName": "Arizona",
     "DemCand": "Mark Kelly",
     "RepCand": "Blake Masters",
@@ -300,11 +339,11 @@ var states = [
   },
   {
     "State": "CA",
-    "DemProb": 0.9999,
-    "RepProb": 0.0001,
-    "DEM": 64.44791018,
-    "GOP": 35.55208982,
-    "Marg": 28.89582036,
+    "DemProb": 1,
+    "RepProb": 0,
+    "DEM": 64.61,
+    "GOP": 35.39,
+    "Marg": 29.21680225,
     "StateName": "California",
     "DemCand": "Alex Padilla",
     "RepCand": "Mark Meuser",
@@ -313,11 +352,11 @@ var states = [
   },
   {
     "State": "CO",
-    "DemProb": 0.8647,
-    "RepProb": 0.1353,
-    "DEM": 54.32862535,
-    "GOP": 45.67137465,
-    "Marg": 8.657250706,
+    "DemProb": 0.8723,
+    "RepProb": 0.1277,
+    "DEM": 54.39,
+    "GOP": 45.61,
+    "Marg": 8.784027626,
     "StateName": "Colorado",
     "DemCand": "Michael Bennet",
     "RepCand": "Joe O'Dea",
@@ -326,11 +365,11 @@ var states = [
   },
   {
     "State": "CT",
-    "DemProb": 0.9935,
-    "RepProb": 0.0065,
-    "DEM": 59.73858928,
-    "GOP": 40.26141072,
-    "Marg": 19.47717857,
+    "DemProb": 0.9945,
+    "RepProb": 0.0055,
+    "DEM": 59.85,
+    "GOP": 40.15,
+    "Marg": 19.69035507,
     "StateName": "Connecticut",
     "DemCand": "Blumenthal",
     "RepCand": "Levy",
@@ -339,11 +378,11 @@ var states = [
   },
   {
     "State": "FL",
-    "DemProb": 0.2527,
-    "RepProb": 0.7473,
-    "DEM": 47.41765347,
-    "GOP": 52.58234653,
-    "Marg": -5.164693054,
+    "DemProb": 0.2534,
+    "RepProb": 0.7466,
+    "DEM": 47.45,
+    "GOP": 52.55,
+    "Marg": -5.090373264,
     "StateName": "Florida",
     "DemCand": "Demmings",
     "RepCand": "Rubio",
@@ -352,11 +391,11 @@ var states = [
   },
   {
     "State": "GA",
-    "DemProb": 0.53,
-    "RepProb": 0.47,
-    "DEM": 50.33160515,
-    "GOP": 49.66839485,
-    "Marg": 0.6632102991,
+    "DemProb": 0.5368,
+    "RepProb": 0.4632,
+    "DEM": 50.38,
+    "GOP": 49.62,
+    "Marg": 0.7625695018,
     "StateName": "Georgia",
     "DemCand": "Warnock",
     "RepCand": "Walker",
@@ -367,9 +406,9 @@ var states = [
     "State": "HI",
     "DemProb": 1,
     "RepProb": 0,
-    "DEM": 72.30408877,
-    "GOP": 27.69591123,
-    "Marg": 44.60817754,
+    "DEM": 72.46,
+    "GOP": 27.54,
+    "Marg": 44.92915942,
     "StateName": "Hawaii",
     "DemCand": "Schatz",
     "RepCand": "McDermott",
@@ -380,9 +419,9 @@ var states = [
     "State": "ID",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 25.08954759,
-    "GOP": 74.91045241,
-    "Marg": -49.82090481,
+    "DEM": 25.25,
+    "GOP": 74.75,
+    "Marg": -49.49992293,
     "StateName": "Idaho",
     "DemCand": "Roth",
     "RepCand": "Crapo",
@@ -391,11 +430,11 @@ var states = [
   },
   {
     "State": "IL",
-    "DemProb": 0.99,
-    "RepProb": 0.01,
-    "DEM": 58.86556801,
-    "GOP": 41.13443199,
-    "Marg": 17.73113602,
+    "DemProb": 0.9897,
+    "RepProb": 0.0103,
+    "DEM": 58.96,
+    "GOP": 41.04,
+    "Marg": 17.92310618,
     "StateName": "Illinois",
     "DemCand": "Duckworth",
     "RepCand": "Salvi",
@@ -404,11 +443,11 @@ var states = [
   },
   {
     "State": "IN",
-    "DemProb": 0.0007,
-    "RepProb": 0.9993,
-    "DEM": 37.4540852,
-    "GOP": 62.5459148,
-    "Marg": -25.0918296,
+    "DemProb": 0.0008,
+    "RepProb": 0.9992,
+    "DEM": 37.59,
+    "GOP": 62.41,
+    "Marg": -24.818995,
     "StateName": "Indiana",
     "DemCand": "McDermott",
     "RepCand": "Young",
@@ -417,11 +456,11 @@ var states = [
   },
   {
     "State": "IA",
-    "DemProb": 0.0454,
-    "RepProb": 0.9546,
-    "DEM": 43.3597303,
-    "GOP": 56.6402697,
-    "Marg": -13.2805394,
+    "DemProb": 0.0427,
+    "RepProb": 0.9573,
+    "DEM": 43.44,
+    "GOP": 56.56,
+    "Marg": -13.11418191,
     "StateName": "Iowa",
     "DemCand": "Franken",
     "RepCand": "Grassley",
@@ -430,11 +469,11 @@ var states = [
   },
   {
     "State": "KS",
-    "DemProb": 0,
-    "RepProb": 1,
-    "DEM": 35.46829329,
-    "GOP": 64.53170671,
-    "Marg": -29.06341342,
+    "DemProb": 0.0001,
+    "RepProb": 0.9999,
+    "DEM": 35.6,
+    "GOP": 64.4,
+    "Marg": -28.79057882,
     "StateName": "Kansas",
     "DemCand": "Holland",
     "RepCand": "Moran",
@@ -443,11 +482,11 @@ var states = [
   },
   {
     "State": "KY",
-    "DemProb": 0.0003,
-    "RepProb": 0.9997,
-    "DEM": 36.91898445,
-    "GOP": 63.08101555,
-    "Marg": -26.16203109,
+    "DemProb": 0.0005,
+    "RepProb": 0.9995,
+    "DEM": 37.06,
+    "GOP": 62.94,
+    "Marg": -25.88919649,
     "StateName": "Kentucky",
     "DemCand": "Booker",
     "RepCand": "Paul",
@@ -458,9 +497,9 @@ var states = [
     "State": "LA",
     "DemProb": 0.0001,
     "RepProb": 0.9999,
-    "DEM": 35.70321448,
-    "GOP": 64.29678552,
-    "Marg": -28.59357105,
+    "DEM": 35.84,
+    "GOP": 64.16,
+    "Marg": -28.32073645,
     "StateName": "Louisana",
     "DemCand": "a Democrat",
     "RepCand": "Kennedy",
@@ -471,9 +510,9 @@ var states = [
     "State": "MD",
     "DemProb": 0.9999,
     "RepProb": 0.0001,
-    "DEM": 65.57920833,
-    "GOP": 34.42079167,
-    "Marg": 31.15841666,
+    "DEM": 65.74,
+    "GOP": 34.26,
+    "Marg": 31.47939855,
     "StateName": "Maryland",
     "DemCand": "Van Hollen",
     "RepCand": "Chaffee",
@@ -482,11 +521,11 @@ var states = [
   },
   {
     "State": "MO",
-    "DemProb": 0.0151,
-    "RepProb": 0.9849,
-    "DEM": 41.7199728,
-    "GOP": 58.2800272,
-    "Marg": -16.56005439,
+    "DemProb": 0.0145,
+    "RepProb": 0.9855,
+    "DEM": 41.79,
+    "GOP": 58.21,
+    "Marg": -16.42597482,
     "StateName": "Missouri",
     "DemCand": "Busch Valentine",
     "RepCand": "Schmitt",
@@ -495,11 +534,11 @@ var states = [
   },
   {
     "State": "NV",
-    "DemProb": 0.6129,
-    "RepProb": 0.3871,
-    "DEM": 51.09096629,
-    "GOP": 48.90903371,
-    "Marg": 2.181932575,
+    "DemProb": 0.616,
+    "RepProb": 0.384,
+    "DEM": 51.15,
+    "GOP": 48.85,
+    "Marg": 2.292813815,
     "StateName": "Nevada",
     "DemCand": "Cortez-Masto",
     "RepCand": "Laxalt",
@@ -508,11 +547,11 @@ var states = [
   },
   {
     "State": "NH",
-    "DemProb": 0.7431,
-    "RepProb": 0.2569,
-    "DEM": 52.48470797,
-    "GOP": 47.51529203,
-    "Marg": 4.969415949,
+    "DemProb": 0.7493,
+    "RepProb": 0.2507,
+    "DEM": 52.57,
+    "GOP": 47.43,
+    "Marg": 5.134442046,
     "StateName": "New Hampshire",
     "DemCand": "Hassan",
     "RepCand": "Bouldoc",
@@ -521,11 +560,11 @@ var states = [
   },
   {
     "State": "NY",
-    "DemProb": 1,
-    "RepProb": 0,
-    "DEM": 63.2899088,
-    "GOP": 36.7100912,
-    "Marg": 26.57981759,
+    "DemProb": 0.9996,
+    "RepProb": 0.0004,
+    "DEM": "#VALUE!",
+    "GOP": "#VALUE!",
+    "Marg": "(26.822159498382113-0.07299419026292613j)",
     "StateName": "New York",
     "DemCand": "Schumer",
     "RepCand": "Pinion",
@@ -534,11 +573,11 @@ var states = [
   },
   {
     "State": "NC",
-    "DemProb": 0.4166,
-    "RepProb": 0.5834,
-    "DEM": 49.21380511,
-    "GOP": 50.78619489,
-    "Marg": -1.572389771,
+    "DemProb": 0.4267,
+    "RepProb": 0.5733,
+    "DEM": 49.27,
+    "GOP": 50.73,
+    "Marg": -1.465586719,
     "StateName": "North Carolina",
     "DemCand": "Beasley",
     "RepCand": "Budd",
@@ -549,9 +588,9 @@ var states = [
     "State": "ND",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 21.24624,
-    "GOP": 78.75376,
-    "Marg": -57.50752,
+    "DEM": 21.41,
+    "GOP": 78.59,
+    "Marg": -57.18653811,
     "StateName": "North Dakota",
     "DemCand": "Christiansen",
     "RepCand": "Hoevan",
@@ -560,11 +599,11 @@ var states = [
   },
   {
     "State": "OH",
-    "DemProb": 0.4974,
-    "RepProb": 0.5026,
-    "DEM": 49.99244489,
-    "GOP": 50.00755511,
-    "Marg": -0.01511021051,
+    "DemProb": 0.5006,
+    "RepProb": 0.4994,
+    "DEM": 50.03,
+    "GOP": 49.97,
+    "Marg": 0.0555809555,
     "StateName": "Ohio",
     "DemCand": "Ryan",
     "RepCand": "Vance",
@@ -575,9 +614,9 @@ var states = [
     "State": "OK",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 17.65808877,
-    "GOP": 82.34191123,
-    "Marg": -64.68382246,
+    "DEM": 17.82,
+    "GOP": 82.18,
+    "Marg": -64.36284058,
     "StateName": "Oklaholma",
     "DemCand": "a Democrat",
     "RepCand": "Lankford",
@@ -588,9 +627,9 @@ var states = [
     "State": "OK1",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 28.89258457,
-    "GOP": 71.10741543,
-    "Marg": -42.21483087,
+    "DEM": 29.05,
+    "GOP": 70.95,
+    "Marg": -41.89384898,
     "StateName": "Oklaholma Special",
     "DemCand": "Mullin",
     "RepCand": "Horn",
@@ -599,11 +638,11 @@ var states = [
   },
   {
     "State": "OR",
-    "DemProb": 0.9966,
-    "RepProb": 0.0034,
-    "DEM": 60.44451333,
-    "GOP": 39.55548667,
-    "Marg": 20.88902665,
+    "DemProb": 0.9963,
+    "RepProb": 0.0037,
+    "DEM": 60.61,
+    "GOP": 39.39,
+    "Marg": 21.21000854,
     "StateName": "Oregon",
     "DemCand": "Wyden",
     "RepCand": "Perkins",
@@ -612,11 +651,11 @@ var states = [
   },
   {
     "State": "PA",
-    "DemProb": 0.8215,
-    "RepProb": 0.1785,
-    "DEM": 53.52603827,
-    "GOP": 46.47396173,
-    "Marg": 7.052076534,
+    "DemProb": 0.8088,
+    "RepProb": 0.1912,
+    "DEM": 53.35,
+    "GOP": 46.65,
+    "Marg": 6.703927297,
     "StateName": "Pennsylvania",
     "DemCand": "Fetterman",
     "RepCand": "Oz",
@@ -625,11 +664,11 @@ var states = [
   },
   {
     "State": "SC",
-    "DemProb": 0.0002,
-    "RepProb": 0.9998,
-    "DEM": 36.15555109,
-    "GOP": 63.84444891,
-    "Marg": -27.68889782,
+    "DemProb": 0,
+    "RepProb": 1,
+    "DEM": 36.29,
+    "GOP": 63.71,
+    "Marg": -27.41606322,
     "StateName": "South Carolina",
     "DemCand": "Matthews",
     "RepCand": "Scott",
@@ -640,9 +679,9 @@ var states = [
     "State": "SD",
     "DemProb": 0,
     "RepProb": 1,
-    "DEM": 27.98292128,
-    "GOP": 72.01707872,
-    "Marg": -44.03415745,
+    "DEM": 28.12,
+    "GOP": 71.88,
+    "Marg": -43.76132285,
     "StateName": "South Dakota",
     "DemCand": "Thune",
     "RepCand": "Bengs",
@@ -651,11 +690,11 @@ var states = [
   },
   {
     "State": "UT",
-    "DemProb": 0.0092,
-    "RepProb": 0.9908,
-    "DEM": 40.94966492,
-    "GOP": 59.05033508,
-    "Marg": -18.10067016,
+    "DemProb": 0.0098,
+    "RepProb": 0.9902,
+    "DEM": 40.99,
+    "GOP": 59.01,
+    "Marg": -18.02746109,
     "StateName": "Utah",
     "DemCand": "McMullin",
     "RepCand": "Lee",
@@ -664,11 +703,11 @@ var states = [
   },
   {
     "State": "VT",
-    "DemProb": 0.9997,
-    "RepProb": 0.0003,
-    "DEM": 63.60148771,
-    "GOP": 36.39851229,
-    "Marg": 27.20297542,
+    "DemProb": 0.9995,
+    "RepProb": 0.0005,
+    "DEM": 63.74,
+    "GOP": 36.26,
+    "Marg": 27.47581003,
     "StateName": "Vermont",
     "DemCand": "Welch",
     "RepCand": "Malloy",
@@ -677,11 +716,11 @@ var states = [
   },
   {
     "State": "WA",
-    "DemProb": 0.9294,
-    "RepProb": 0.0706,
-    "DEM": 55.5637682,
-    "GOP": 44.4362318,
-    "Marg": 11.1275364,
+    "DemProb": 0.9261,
+    "RepProb": 0.0739,
+    "DEM": 55.63,
+    "GOP": 44.37,
+    "Marg": 11.2611895,
     "StateName": "Washington",
     "DemCand": "Murray",
     "RepCand": "Smiley",
@@ -690,11 +729,11 @@ var states = [
   },
   {
     "State": "WI",
-    "DemProb": 0.3672,
-    "RepProb": 0.6328,
-    "DEM": 48.74197322,
-    "GOP": 51.25802678,
-    "Marg": -2.516053569,
+    "DemProb": 0.3764,
+    "RepProb": 0.6236,
+    "DEM": 48.81,
+    "GOP": 51.19,
+    "Marg": -2.37660599,
     "StateName": "Wisconsin",
     "DemCand": "Barnes",
     "RepCand": "Johnson",
@@ -702,762 +741,899 @@ var states = [
     "Incumbent": "R"
   }
 ];
-var states2 = copy(states);
-    
-function copy(x) { //copy the states to states2
-    return JSON.parse( JSON.stringify(x) );
-}
-  
-function stateSort(){ //sort the states by probability
-    states2.sort(function (a, b) {
-  return a.RepProb - b.RepProb;
-});    
-    }
-    
-$(document).on('mousemove', function(e){
-   $('#infobox').offset({left: e.pageX-100, top: e.pageY-200})
-});
+  var states2 = copy(states);
 
-$(document).ready(function() {
+  function copy(x) { //copy the states to states2
+    return JSON.parse(JSON.stringify(x));
+  }
+
+  function stateSort() { //sort the states by probability
+    states2.sort(function (a, b) {
+      return a.RepProb - b.RepProb;
+    });
+  }
+
+  $(document).on('mousemove', function (e) {
+    $('#infobox').offset({ left: e.pageX - 100, top: e.pageY - 200 })
+  });
+
+  $(document).ready(function () {
     drawStates();
     //update topline numbers
-        document.getElementById("toplineD").innerHTML=Math.round(displayProbDem)+"%";
-        document.getElementById("toplineR").innerHTML=Math.round(displayProbGOP)+"%";
-        document.getElementById("dSeatAvg").innerHTML=dSeatAvg;
-        document.getElementById("rSeatAvg").innerHTML=rSeatAvg;
+    document.getElementById("toplineD").innerHTML = Math.round(displayProbDem) + "%";
+    document.getElementById("toplineR").innerHTML = Math.round(displayProbGOP) + "%";
+    document.getElementById("dSeatAvg").innerHTML = dSeatAvg;
+    document.getElementById("rSeatAvg").innerHTML = rSeatAvg;
 
-        document.getElementById("demProb").style.width=displayProbDem+"%";
-        document.getElementById("tieProb").style.width=displayProbTie+"%";
-        document.getElementById("repProb").style.width=displayProbGOP+"%";
+    document.getElementById("demProb").style.width = displayProbDem + "%";
+    document.getElementById("tieProb").style.width = displayProbTie + "%";
+    document.getElementById("repProb").style.width = displayProbGOP + "%";
 
-    for (x in dist) { 
-        var fill;
-        var letter;
-        var letterR;
-        var note;
+    for (x in dist) {
+      var fill;
+      var letter;
+      var letterR;
+      var note;
 
-        var width = dist[x]["Prob %"];
-        if(dist[x].DEM>49){
-         fill = "background-color:#2798da";  
-                        var shade2 = ((100-dist[x].DEM)/50)*((x-6)*.1)
+      var width = dist[x]["Prob %"];
+      if (dist[x].DEM > 49) {
+        fill = "background-color:#2798da";
+        var shade2 = ((100 - dist[x].DEM) / 50) * ((x - 6) * .1)
 
-            letter = "rgba(39, 152, 218,"+shade2+")"; 
-            letterR = "none";  
+        letter = "rgba(39, 152, 218," + shade2 + ")";
+        letterR = "none";
 
-            if (dist[x].DEM==49){
-                note = "<- Current Composition";   
-            }else{
-            
-            }
+        if (dist[x].DEM == 49) {
+          note = "<- Current Composition";
+        } else {
+
         }
-          else if(dist[x].DEM<49){
-         fill = "background-color:#ff352c"; 
-            letter = "none";
-              var shade = ((100-dist[x].DEM)/50)*((8-x)*.1)
-            letterR = "rgba(255, 53, 44,"+shade+")";  
-        }
-       
-        var r = 100-dist[x].DEM;
-                var s = 2000*dist[x]["Prob %"];
-    document.getElementById("dist").innerHTML+="<tr><td style='background-color:"+letter+"'>"+dist[x].DEM+"</td><td style='background-color:"+letterR+"'>"+r+"</td><td>"+Math.round(dist[x]["Prob %"]*100)+"%</td><td><div id='distBar'style='width:"+s+"px;"+fill+"'></div></td></tr>";
+      }
+      else if (dist[x].DEM < 49) {
+        fill = "background-color:#ff352c";
+        letter = "none";
+        var shade = ((100 - dist[x].DEM) / 50) * ((8 - x) * .1)
+        letterR = "rgba(255, 53, 44," + shade + ")";
+      }
+
+      var r = 100 - dist[x].DEM;
+      var s = 2000 * dist[x]["Prob %"];
+      document.getElementById("dist").innerHTML += "<tr><td style='background-color:" + letter + "'>" + dist[x].DEM + "</td><td style='background-color:" + letterR + "'>" + r + "</td><td>" + Math.round(dist[x]["Prob %"] * 100) + "%</td><td><div id='distBar'style='width:" + s + "px;" + fill + "'></div></td></tr>";
     }
-    
 
-$('#map').usmap({
-mouseover: function(event, data) {
-                 index = states.findIndex(st => st.State === data.name); //change the index to state being moused-over.
-    console.log(states[index]);
-            if(states[index]==undefined||states[index]==null){
-                    document.getElementById("infobox").style.display("none");
-             }else{
-             }
-Georgia(index);     
-  },       
-          stateStyles: {fill: '#e8e8e8',stroke:"whitesmoke",'stroke-width':0,                          'stroke-linejoin':'bevel'},
-stateHoverAnimation: 0,
-        showLabels: true,
-         stateSpecificStyles: {
-        'AL': {fill: color(states[0].DemProb)},
-        'AK': {fill: color(states[1].DemProb)},
-        'AR': {fill: color(states[2].DemProb)},
-        'AZ': {fill: color(states[3].DemProb)},
-        'CA': {fill: color(states[4].DemProb)},
-        'CO': {fill: color(states[5].DemProb)},
-        'CT': {fill: color(states[6].DemProb),stroke:tossup(states[6].DemProb),'stroke-width':tossupLine(states[6].DemProb)},
-        'FL': {fill: color(states[7].DemProb),stroke:tossup(states[7].DemProb),'stroke-width':tossupLine(states[7].DemProb)},     
-        'GA': {fill: color(states[8].DemProb),stroke:tossup(states[8].DemProb),'stroke-width':tossupLine(states[8].DemProb)},
-        'HI': {fill: color(states[9].DemProb)},
-        'ID': {fill: color(states[10].DemProb),stroke:tossup(states[10].DemProb),'stroke-width':tossupLine(states[10].DemProb)},
-        'IL': {fill: color(states[11].DemProb),stroke:tossup(states[11].DemProb),'stroke-width':tossupLine(states[11].DemProb)},
-        'IN': {fill: color(states[12].DemProb)},
-        'IA': {fill: color(states[13].DemProb)},
-        'KS': {fill: color(states[14].DemProb)},
-        'KY': {fill: color(states[15].DemProb)},
-        'LA': {fill: color(states[16].DemProb)},
-        'MD': {fill: color(states[17].DemProb)},
-        'MO': {fill: color(states[18].DemProb)},
-        'NV': {fill: color(states[19].DemProb),stroke:tossup(states[19].DemProb),'stroke-width':tossupLine(states[19].DemProb)},
-        'NH': {fill: color(states[20].DemProb),stroke:tossup(states[20].DemProb),'stroke-width':tossupLine(states[20].DemProb)},
-        'NY': {fill: color(states[21].DemProb)},
-        'NC': {fill: color(states[22].DemProb),stroke:tossup(states[22].DemProb),'stroke-width':tossupLine(states[22].DemProb)},
-        'ND': {fill: color(states[23].DemProb)},
-        'OH': {fill: color(states[24].DemProb),stroke:tossup(states[24].DemProb),'stroke-width':tossupLine(states[24].DemProb)},
-        'OK': {fill: color(states[25].DemProb)},
-        'OK1': {fill: color(states[26].DemProb)},
-        'OR': {fill: color(states[27].DemProb)},
-        'PA': {fill: color(states[28].DemProb),stroke:tossup(states[28].DemProb),'stroke-width':tossupLine(states[28].DemProb)},
-        'SC': {fill: color(states[29].DemProb)},
-        'SD': {fill: color(states[30].DemProb)},
-        'UT': {fill: color(states[31].DemProb)},
-        'VT': {fill: color(states[32].DemProb)},
-        'WA': {fill: color(states[33].DemProb)},
-        'WI': {fill: color(states[34].DemProb),stroke:tossup(states[34].DemProb),'stroke-width':tossupLine(states[34].DemProb)}
-  },
-    stateSpecificLabelBackingStyles: {
-      'HI': {fill: color(states[9].DemProb)},
-      'CT': {fill: color(states[6].DemProb)},
-      'MD': {fill: color(states[27].DemProb)},
-        'VT': {fill: color(states[32].DemProb)},
-        'NJ': {fill: color(states[22].DemProb)},
-        'MA': {fill: color(states[15].DemProb)},
-        'DE': {fill: color(states[5].DemProb)},
-        'OK1': {fill: color(states[26].DemProb)},
 
-},
-    labelBackingHoverStyles:{
-      'stroke-width':3,
-        'stroke':'292929'
-    },
-        stateSpecificLabelBackingHoverStyles:{
-                'MD': {fill: color(states[27].DemProb)},
-        'RI': {fill: color(states[27].DemProb)},
-        'NJ': {fill: color(states[22].DemProb)},
-        'MA': {fill: color(states[15].DemProb)},
-        'DE': {fill: color(states[5].DemProb)},
-        'OK1': {fill: color(states[26].DemProb)},
+    $('#map').usmap({
+      mouseover: function (event, data) {
+        index = states.findIndex(st => st.State === data.name); //change the index to state being moused-over.
+        console.log(states[index]);
+        if (states[index] == undefined || states[index] == null) {
+          document.getElementById("infobox").style.display("none");
+        } else {
+        }
+        Georgia(index);
+      },
+      stateStyles: { fill: '#e8e8e8', stroke: "whitesmoke", 'stroke-width': 0, 'stroke-linejoin': 'bevel' },
+      stateHoverAnimation: 0,
+      showLabels: true,
+      stateSpecificStyles: {
+        'AL': { fill: color(states[0].DemProb) },
+        'AK': { fill: color(states[1].DemProb) },
+        'AR': { fill: color(states[2].DemProb) },
+        'AZ': { fill: color(states[3].DemProb) },
+        'CA': { fill: color(states[4].DemProb) },
+        'CO': { fill: color(states[5].DemProb) },
+        'CT': { fill: color(states[6].DemProb), stroke: tossup(states[6].DemProb), 'stroke-width': tossupLine(states[6].DemProb) },
+        'FL': { fill: color(states[7].DemProb), stroke: tossup(states[7].DemProb), 'stroke-width': tossupLine(states[7].DemProb) },
+        'GA': { fill: color(states[8].DemProb), stroke: tossup(states[8].DemProb), 'stroke-width': tossupLine(states[8].DemProb) },
+        'HI': { fill: color(states[9].DemProb) },
+        'ID': { fill: color(states[10].DemProb), stroke: tossup(states[10].DemProb), 'stroke-width': tossupLine(states[10].DemProb) },
+        'IL': { fill: color(states[11].DemProb), stroke: tossup(states[11].DemProb), 'stroke-width': tossupLine(states[11].DemProb) },
+        'IN': { fill: color(states[12].DemProb) },
+        'IA': { fill: color(states[13].DemProb) },
+        'KS': { fill: color(states[14].DemProb) },
+        'KY': { fill: color(states[15].DemProb) },
+        'LA': { fill: color(states[16].DemProb) },
+        'MD': { fill: color(states[17].DemProb) },
+        'MO': { fill: color(states[18].DemProb) },
+        'NV': { fill: color(states[19].DemProb), stroke: tossup(states[19].DemProb), 'stroke-width': tossupLine(states[19].DemProb) },
+        'NH': { fill: color(states[20].DemProb), stroke: tossup(states[20].DemProb), 'stroke-width': tossupLine(states[20].DemProb) },
+        'NY': { fill: color(states[21].DemProb) },
+        'NC': { fill: color(states[22].DemProb), stroke: tossup(states[22].DemProb), 'stroke-width': tossupLine(states[22].DemProb) },
+        'ND': { fill: color(states[23].DemProb) },
+        'OH': { fill: color(states[24].DemProb), stroke: tossup(states[24].DemProb), 'stroke-width': tossupLine(states[24].DemProb) },
+        'OK': { fill: color(states[25].DemProb) },
+        'OK1': { fill: color(states[26].DemProb) },
+        'OR': { fill: color(states[27].DemProb) },
+        'PA': { fill: color(states[28].DemProb), stroke: tossup(states[28].DemProb), 'stroke-width': tossupLine(states[28].DemProb) },
+        'SC': { fill: color(states[29].DemProb) },
+        'SD': { fill: color(states[30].DemProb) },
+        'UT': { fill: color(states[31].DemProb) },
+        'VT': { fill: color(states[32].DemProb) },
+        'WA': { fill: color(states[33].DemProb) },
+        'WI': { fill: color(states[34].DemProb), stroke: tossup(states[34].DemProb), 'stroke-width': tossupLine(states[34].DemProb) }
+      },
+      stateSpecificLabelBackingStyles: {
+        'HI': { fill: color(states[9].DemProb) },
+        'CT': { fill: color(states[6].DemProb) },
+        'MD': { fill: color(states[27].DemProb) },
+        'VT': { fill: color(states[32].DemProb) },
+        'NJ': { fill: color(states[22].DemProb) },
+        'MA': { fill: color(states[15].DemProb) },
+        'DE': { fill: color(states[5].DemProb) },
+        'OK1': { fill: color(states[26].DemProb) },
 
-    },
-labelRadius:0,
-        labelBackingStyles:{fill:'#c9c8c8',stroke:0},
-    labelWidth:25,
-    labelHeight:25,
-    labelTextStyles:{
-      'font-family':'Inconsolata',
-        'font-size':'15px'
-    },
-          stateHoverStyles: {'stroke-width': 3,stroke:'#292929'}
+      },
+      labelBackingHoverStyles: {
+        'stroke-width': 3,
+        'stroke': '292929'
+      },
+      stateSpecificLabelBackingHoverStyles: {
+        'MD': { fill: color(states[27].DemProb) },
+        'RI': { fill: color(states[27].DemProb) },
+        'NJ': { fill: color(states[22].DemProb) },
+        'MA': { fill: color(states[15].DemProb) },
+        'DE': { fill: color(states[5].DemProb) },
+        'OK1': { fill: color(states[26].DemProb) },
+
+      },
+      labelRadius: 0,
+      labelBackingStyles: { fill: '#c9c8c8', stroke: 0 },
+      labelWidth: 25,
+      labelHeight: 25,
+      labelTextStyles: {
+        'font-family': 'Inconsolata',
+        'font-size': '15px'
+      },
+      stateHoverStyles: { 'stroke-width': 3, stroke: '#292929' }
     });
   });
-    
-function hideInfo(){ //hide infobox
-        document.getElementById("infobox").style.display="none";
-}
-    
-function Georgia(d){ //pull up infobox
- 
-    document.getElementById("infobox").style.display="inline-block"; 
-    var prob = states[d].DemProb*100;
-    if(prob>99){
-                document.getElementById("probD").innerHTML=">99%";
-                document.getElementById("probR").innerHTML="<1%";
-                document.getElementById("rating").style.color="white"
+
+  function hideInfo() { //hide infobox
+    document.getElementById("infobox").style.display = "none";
+  }
+
+  function Georgia(d) { //pull up infobox
+
+    document.getElementById("infobox").style.display = "inline-block";
+    var prob = states[d].DemProb * 100;
+    if (prob > 99) {
+      document.getElementById("probD").innerHTML = ">99%";
+      document.getElementById("probR").innerHTML = "<1%";
+      document.getElementById("rating").style.color = "white"
 
     }
-    else if(prob<1){
-                document.getElementById("probD").innerHTML="<1%";
-                document.getElementById("probR").innerHTML=">99%";
-                document.getElementById("rating").style.color="white"
-    
-                 }
-    else{
-                document.getElementById("probD").innerHTML= Math.round(prob)+"%";
-                document.getElementById("probR").innerHTML= 100-Math.round(prob)+"%";
-                document.getElementById("rating").style.color="black"
+    else if (prob < 1) {
+      document.getElementById("probD").innerHTML = "<1%";
+      document.getElementById("probR").innerHTML = ">99%";
+      document.getElementById("rating").style.color = "white"
 
-        }    
-    if(d==31){ //Special styling for Alaska
-            document.getElementById("probD").style.color= "#78bc1a";
-        document.getElementById("bar2").style.background = "linear-gradient(90deg, #78bc1a "+prob+"%, #ff352c "+prob+"%)";
-
-    }else{
-          document.getElementById("probD").style.color= "#2798da";
-          var rProb = 100 - prob;
-          document.getElementById("bar2").style.background = "linear-gradient(90deg, #2798da "+prob+"%, #ff352c "+prob+"%)";
-}
-            document.getElementById("state").innerHTML= states[d].StateName;
-            document.getElementById("dCand").innerHTML= states[d].DemCand;
-            document.getElementById("rCand").innerHTML= states[d].RepCand;
-            document.getElementById("rating").innerHTML=rating(states[d].DemProb);
-            document.getElementById("rating").style.backgroundColor=colorT(states[d].DemProb);
-if(states[d].Incumbent=="D"){
-  document.getElementById("currentD").innerHTML= "i ";
-  document.getElementById("currentR").innerHTML= "";
-  document.getElementById("currentR").style.display= "none";
-  document.getElementById("currentD").style.display= "inline";
-} if(states[d].Incumbent=="R"){
-    document.getElementById("currentR").innerHTML= "i ";
-    document.getElementById("currentD").innerHTML= "";
-    document.getElementById("currentD").style.display= "none";
-    document.getElementById("currentR").style.display= "inline";
-}
- if(states[d].Incumbent=="N"){
-  document.getElementById("currentR").innerHTML= "";
-    document.getElementById("currentD").innerHTML= "";
-    document.getElementById("currentD").style.display= "none";
-    document.getElementById("currentR").style.display= "none";
-}
-var margin = Math.round(states[d].DEM-states[d].GOP);
-                if(margin>0){
-                        document.getElementById("margin").innerHTML= states[d].DemCand+" +"+margin;
-                        document.getElementById("margin").style.color= "#2798da";
-                 }
-                 if(margin==0){
-                        document.getElementById("margin").innerHTML= "EVEN";
-                        document.getElementById("margin").style.color= "#292929"; 
-                 }
-                  if(margin<0){
-                        document.getElementById("margin").innerHTML= states[d].RepCand+" +"+Math.abs(margin);
-                        document.getElementById("margin").style.color= "#ff352c"; 
-                 }    
     }
-    /*
+    else {
+      document.getElementById("probD").innerHTML = Math.round(prob) + "%";
+      document.getElementById("probR").innerHTML = 100 - Math.round(prob) + "%";
+      document.getElementById("rating").style.color = "black"
+
+    }
+    if (d == 31) { //Special styling for Alaska
+      document.getElementById("probD").style.color = "#78bc1a";
+      document.getElementById("bar2").style.background = "linear-gradient(90deg, #78bc1a " + prob + "%, #ff352c " + prob + "%)";
+
+    } else {
+      document.getElementById("probD").style.color = "#2798da";
+      var rProb = 100 - prob;
+      document.getElementById("bar2").style.background = "linear-gradient(90deg, #2798da " + prob + "%, #ff352c " + prob + "%)";
+    }
+    document.getElementById("state").innerHTML = states[d].StateName;
+    document.getElementById("dCand").innerHTML = states[d].DemCand;
+    document.getElementById("demCand").innerHTML = states[d].DemCand;
+    document.getElementById("repCand").innerHTML = states[d].RepCand;
+    document.getElementById("demRange").style.left = states[d].DEM + "%";
+
+    document.getElementById("repRange").style.left = states[d].GOP + "%";
+
+    document.getElementById("rCand").innerHTML = states[d].RepCand;
+    document.getElementById("rating").innerHTML = rating(states[d].DemProb);
+    document.getElementById("rating").style.backgroundColor = colorT(states[d].DemProb);
+    if (states[d].Incumbent == "D") {
+      document.getElementById("currentD").innerHTML = "i ";
+      document.getElementById("currentR").innerHTML = "";
+      document.getElementById("currentR").style.display = "none";
+      document.getElementById("currentD").style.display = "inline";
+    } if (states[d].Incumbent == "R") {
+      document.getElementById("currentR").innerHTML = "i ";
+      document.getElementById("currentD").innerHTML = "";
+      document.getElementById("currentD").style.display = "none";
+      document.getElementById("currentR").style.display = "inline";
+    }
+    if (states[d].Incumbent == "N") {
+      document.getElementById("currentR").innerHTML = "";
+      document.getElementById("currentD").innerHTML = "";
+      document.getElementById("currentD").style.display = "none";
+      document.getElementById("currentR").style.display = "none";
+    }
+    var margin = Math.round(states[d].DEM - states[d].GOP);
+    if (margin > 0) {
+      document.getElementById("margin").innerHTML = states[d].DemCand + " +" + margin;
+      document.getElementById("margin").style.color = "#2798da";
+    }
+    if (margin == 0) {
+      document.getElementById("margin").innerHTML = "EVEN";
+      document.getElementById("margin").style.color = "#292929";
+    }
+    if (margin < 0) {
+      document.getElementById("margin").innerHTML = states[d].RepCand + " +" + Math.abs(margin);
+      document.getElementById("margin").style.color = "#ff352c";
+    }
+  }
+  /*
 function countDownFrom(num) {
-    let intervalId = setInterval(tick, 1000);
-    var DemP = displayProbDem * .01;
-    var RepP = displayProbGOP * .01;
-    var TieP = displayProbTie * .01;
-    function tick() {
-        console.log(num);
-        num = num - 1;
-        var sim = Math.random();     
-        if (sim<DemP){
-            document.getElementById("random").innerHTML="Dem";
-            document.getElementById("random").style.color="#2798da";
-        }
-        else if (sim>DemP+TieP){
-            document.getElementById("random").innerHTML="Rep";
-            document.getElementById("random").style.color="#ff352c"; 
-        }
-        else{
-            document.getElementById("random").innerHTML="Tie";
-            document.getElementById("random").style.color="gray";
+  let intervalId = setInterval(tick, 1000);
+  var DemP = displayProbDem * .01;
+  var RepP = displayProbGOP * .01;
+  var TieP = displayProbTie * .01;
+  function tick() {
+      console.log(num);
+      num = num - 1;
+      var sim = Math.random();     
+      if (sim<DemP){
+          document.getElementById("random").innerHTML="Dem";
+          document.getElementById("random").style.color="#2798da";
+      }
+      else if (sim>DemP+TieP){
+          document.getElementById("random").innerHTML="Rep";
+          document.getElementById("random").style.color="#ff352c"; 
+      }
+      else{
+          document.getElementById("random").innerHTML="Tie";
+          document.getElementById("random").style.color="gray";
 
-        }
-        if (num <= 0) {
-            num = 3;
-        }
-    }
+      }
+      if (num <= 0) {
+          num = 3;
+      }
+  }
 }
 countDownFrom(3);
 */
-function drawStates(){ //draw the expected makeup of the Senate.
-        stateSort();
-        document.getElementById("up").innerHTML="";
-        document.getElementById("seatLabelD").innerHTML="↑ 36 Dem seats not up";
-        document.getElementById("seatLabelR").innerHTML="29 GOP seats not up ↑";
+  function drawStates() { //draw the expected makeup of the Senate.
+    stateSort();
+    document.getElementById("up").innerHTML = "";
+    document.getElementById("seatLabelD").innerHTML = "↑ 36 Dem seats not up";
+    document.getElementById("seatLabelR").innerHTML = "29 GOP seats not up ↑";
 
-    for (i=0;i<36;i++) {
-    document.getElementById("up").innerHTML+="<div class='blockD'></div>";
+    for (i = 0; i < 36; i++) {
+      document.getElementById("up").innerHTML += "<div class='blockD'></div>";
     }
 
-    for (x in states2) { 
-        var index2 = states.findIndex(st => st.State === states2[x].State);
-        document.getElementById("up").innerHTML+="<div class='block' style='background-color:"+color(states2[x].DemProb)+";' onmouseover='Georgia("+index2+")' onmouseout='hideInfo()'></div>";
-if(x==13){
-    document.getElementById("up").innerHTML+="<div id='maj'></div>";
-        }
+    for (x in states2) {
+      var index2 = states.findIndex(st => st.State === states2[x].State);
+      document.getElementById("up").innerHTML += "<div class='block' style='background-color:" + color(states2[x].DemProb) + ";' onmouseover='Georgia(" + index2 + ")' onmouseout='hideInfo()'></div>";
+      if (x == 13) {
+        document.getElementById("up").innerHTML += "<div id='maj'></div>";
+      }
     }
-      for (i=0;i<29;i++) {
-    document.getElementById("up").innerHTML+="<div class='blockR'></div>";
+    for (i = 0; i < 29; i++) {
+      document.getElementById("up").innerHTML += "<div class='blockR'></div>";
     }
-}
-    
-function drawCurrentStates(){ //draw the current makeup of the Senate.
-            document.getElementById("seatLabelD").innerHTML="50 Democratic Seats";
-            document.getElementById("seatLabelR").innerHTML="50 Republican Seats";
+  }
 
-        document.getElementById("up").innerHTML="";
-    for (i=0;i<50;i++) {
-    document.getElementById("up").innerHTML+="<div class='block' style='background-color:#2798da'></div>";
+  function drawCurrentStates() { //draw the current makeup of the Senate.
+    document.getElementById("seatLabelD").innerHTML = "50 Democratic Seats";
+    document.getElementById("seatLabelR").innerHTML = "50 Republican Seats";
+
+    document.getElementById("up").innerHTML = "";
+    for (i = 0; i < 50; i++) {
+      document.getElementById("up").innerHTML += "<div class='block' style='background-color:#2798da'></div>";
     }
-      for (i=0;i<50;i++) {
-    document.getElementById("up").innerHTML+="<div class='block' style='background-color:#ff352c'></div>";
-          if(i==50){
-    document.getElementById("up").innerHTML+="<div id='maj'></div>";
-        }
+    for (i = 0; i < 50; i++) {
+      document.getElementById("up").innerHTML += "<div class='block' style='background-color:#ff352c'></div>";
+      if (i == 50) {
+        document.getElementById("up").innerHTML += "<div id='maj'></div>";
+      }
     }
-}   
-function colorT(d){ //use this to color the states based on prob.
-    if(d<=.05){
-        return '#ff352c';
-    } 
-    if(d<=.25){
-        return '#ff8d77';
-    } 
-        if(d<=.40){
-    return '#ffc9bb';
-        }  
-        if(d<=.60){
-    return '#fcfcfc';
-}
-        if(d<=.75){
-    return '#c8e0fa';
-}  
-    
-        if(d<=.95){
-    return '#8ac3f4';
-}  
-        if(d<=1){
-    return '#2798da';
-} 
-}
-    function rating(d){ //use this to color the states based on prob.
-    if(d<=.05){
-        return 'Solid R';
-    } 
-   else if(d<=.25){
-        return 'Likely R';
-    } 
-        if(d<=.40){
-    return 'Lean R';
-        }  
-        if(d<=.60){
-    return 'Tossup';
-}
-        if(d<=.75){
-    return 'Lean D';
-}      
-        if(d<=.95){
-    return 'Likely D';
-}  
-        if(d<=1){
-    return 'Solid D';
-}  
-}
-    
-function colorZ(d){ //use this to color the states based on prob.
-    if(d<=.1){
-        return '#ff352c';
-    } 
-    if(d<=.2){
-        return '#ff715b';
-    } 
-        if(d<=.30){
-    return '#ff9a85';
-        }  
-                if(d<=.40){
-    return '#ffbeae';
-}
-            if(d<=.50){
-    return '#ffdfd6';
-}
-        if(d<=.60){
-    return '#deeafd';
-}
-        if(d<=.70){
-    return '#bcd5fb';
-}   
-        if(d<=.80){
-    return '#97c1f9';
-}
-        if(d<=.90){
-    return '#6badf6';
-}  
-        if(d<=1){
-    return '#1e9af3';
-}  
-}
-function color(d){ //use this to color the states based on prob.
-    if(d<=.1){
-        return '#ff352c';
-    } 
-    if(d<=.2){
-        return '#ff715b';
-    } 
-        if(d<=.30){
-    return '#ff9a85';
-        }  
-                if(d<=.40){
-    return '#ffbeae';
-}
-            if(d<=.50){
-    return '#ffdfd6';
-}
-        if(d<=.60){
-    return '#dceaf8';
-}
-        if(d<=.70){
-    return '#b9d4f1';
-}   
-        if(d<=.80){
-    return '#93c0e9';
-}
-        if(d<=.90){
-    return '#68ace2';
-}  
-        if(d<=1){
-    return '#2798da';
-}  
-}    
-function colorS(d){
-        if(d>.4&&d<.6){
-        return '2px solid black';
-    }else{}
-}
-    
-    function tossup(d){
-        if(d<.6 && d>.40){
-            return '#292929';
-        }
+  }
+  function colorT(d) { //use this to color the states based on prob.
+    if (d <= .05) {
+      return '#ff352c';
     }
- function tossupLine(d){ 
-        if(d<.6 && d>.40){
-            return '2';
-        }else{
-            return '0';
-        }
+    if (d <= .25) {
+      return '#ff8d77';
     }
+    if (d <= .40) {
+      return '#ffc9bb';
+    }
+    if (d <= .60) {
+      return '#fcfcfc';
+    }
+    if (d <= .75) {
+      return '#c8e0fa';
+    }
+
+    if (d <= .95) {
+      return '#8ac3f4';
+    }
+    if (d <= 1) {
+      return '#2798da';
+    }
+  }
+  function rating(d) { //use this to color the states based on prob.
+    if (d <= .05) {
+      return 'Solid R';
+    }
+    else if (d <= .25) {
+      return 'Likely R';
+    }
+    if (d <= .40) {
+      return 'Lean R';
+    }
+    if (d <= .60) {
+      return 'Tossup';
+    }
+    if (d <= .75) {
+      return 'Lean D';
+    }
+    if (d <= .95) {
+      return 'Likely D';
+    }
+    if (d <= 1) {
+      return 'Solid D';
+    }
+  }
+
+  function colorZ(d) { //use this to color the states based on prob.
+    if (d <= .1) {
+      return '#ff352c';
+    }
+    if (d <= .2) {
+      return '#ff715b';
+    }
+    if (d <= .30) {
+      return '#ff9a85';
+    }
+    if (d <= .40) {
+      return '#ffbeae';
+    }
+    if (d <= .50) {
+      return '#ffdfd6';
+    }
+    if (d <= .60) {
+      return '#deeafd';
+    }
+    if (d <= .70) {
+      return '#bcd5fb';
+    }
+    if (d <= .80) {
+      return '#97c1f9';
+    }
+    if (d <= .90) {
+      return '#6badf6';
+    }
+    if (d <= 1) {
+      return '#1e9af3';
+    }
+  }
+  function color(d) { //use this to color the states based on prob.
+    if (d <= .1) {
+      return '#ff352c';
+    }
+    if (d <= .2) {
+      return '#ff715b';
+    }
+    if (d <= .30) {
+      return '#ff9a85';
+    }
+    if (d <= .40) {
+      return '#ffbeae';
+    }
+    if (d <= .50) {
+      return '#ffdfd6';
+    }
+    if (d <= .60) {
+      return '#dceaf8';
+    }
+    if (d <= .70) {
+      return '#b9d4f1';
+    }
+    if (d <= .80) {
+      return '#93c0e9';
+    }
+    if (d <= .90) {
+      return '#68ace2';
+    }
+    if (d <= 1) {
+      return '#2798da';
+    }
+  }
+  function colorS(d) {
+    if (d > .4 && d < .6) {
+      return '2px solid black';
+    } else { }
+  }
+
+  function tossup(d) {
+    if (d < .6 && d > .40) {
+      return '#292929';
+    }
+  }
+  function tossupLine(d) {
+    if (d < .6 && d > .40) {
+      return '2';
+    } else {
+      return '0';
+    }
+  }
 
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Arimo:400,700|Inconsolata:400,700');
-:root {
-  --main-bg-color: brown;
-    }
-    svg{
-        font-family: 'Inconsolata'
-    }
+  @import url('https://fonts.googleapis.com/css?family=Arimo:400,700|Inconsolata:400,700');
 
-    body{
-        font-family: HelveticaNeue,Arial,sans-serif;
-        font-weight: bold;
-        background-color: whitesmoke;
-       margin: 0;
-    }
-    #container{
+  :root {
+    --main-bg-color: brown;
+  }
+
+  svg {
+    font-family: 'Inconsolata'
+  }
+
+  body {
+    font-family: HelveticaNeue, Arial, sans-serif;
+    font-weight: bold;
+    background-color: whitesmoke;
+    margin: 0;
+  }
+
+  #container {
     padding: 10px;
-    }
-    #bar{
-        width: 100%;
-        height:30px;
-        float:left;
-        display: inline-block;
-    }
-    #bar2{
-        width: 100%;
-        height:15px;
-    }
-    #toplineD,#toplineR,#dSeatAvg,#rSeatAvg{
-        font-size: 25pt;
-    }
-    #demProb{
-width:61.73%;
-        height: 100%;
-        background-color: #2798da;
-        float:left;
-    }
-     #tieProb{
-width:10.55%;
-        height: 100%;
-        background-color: #8b8b8b;
-         background: repeating-linear-gradient(
-  45deg,
-  #525252,
-  #525252 5px,
-  #f5f5f5 5px,
-  #f5f5f5 10px
-);
-    float:left;
-    }
-    #repProb{
-        width:27.72%;
-        height: 100%;
-        background-color: #ff352c;
-                 float:left;
-    }
-    #keybox{
-      position: relative;
-      top: -100;
-      text-align: left;
-      left:10;
-      border: 3px solid black;
-      width: 180px;
-      padding: 5px;
-      height: 69px;
-      display: table;
-      background-color: #f5f5f5;
-      box-shadow: 5px 5px 0px black;
-}
-    
-    #info{
-        margin-bottom: 35px;
-    }
+  }
 
-    #map{
-        position: relative;
-        left:25%;
-    }
-    #lower{
-      width:100%;  
-        display: inline-block;
-    }
-    .dem{
-        float:left;
-        color: #2798da;
-        font-size:21pt;
-    }
-    .gop{
-        float:right;
-        color: #ff352c;
-        font-size:21pt;
-        text-align: right;
-    }
-    button{
-        border: 2px solid #292929;
-        color:#292929;
-        background-color: whitesmoke;
-        font-weight: bold;
-        outline: none;
-        padding: 5px;
-        margin: 0px;
-        text-align: center;
-        cursor: pointer;
-    }
-    button:hover{
-        background-color: #292929;
-        color:whitesmoke;
-    }
-    .meter{
-        height: 100%;
-        display: block;
-    }
-    #infobox{
-        border:3px solid #292929;
-        background-color: rgba(255, 255, 255, .97);
-        text-align: left;
-        width:225px;
-        padding: 10px;
-        z-index: 1;
-    }
-    #info-container{
-        width:225px;
-        height:150px;
-        position: absolute;
-   }
-   #para{
-    border:3px solid black;
+  #bar {
+    width: 100%;
+    height: 30px;
+    float: left;
+    display: inline-block;
+  }
+
+  #bar2 {
+    width: 100%;
+    height: 15px;
+  }
+
+  #toplineD,
+  #toplineR,
+  #dSeatAvg,
+  #rSeatAvg {
+    font-size: 25pt;
+  }
+
+  #demProb {
+    width: 61.73%;
+    height: 100%;
+    background-color: #2798da;
+    float: left;
+  }
+
+
+  #tieProb {
+    width: 10.55%;
+    height: 100%;
+    background-color: #8b8b8b;
+    background: repeating-linear-gradient(45deg,
+        #525252,
+        #525252 5px,
+        #f5f5f5 5px,
+        #f5f5f5 10px);
+    float: left;
+  }
+
+  #repProb {
+    width: 27.72%;
+    height: 100%;
+    background-color: #ff352c;
+    float: left;
+  }
+
+  #currentSen {
+    display: block;
+  }
+  #demVote {
+    outline: 1px solid whitesmoke;
+
+    height: 15px;
+    width: 3px;
+    left:50%;
+    background-color: #2798da;
+    position: relative;
+    display: inline-block;
+  }
+
+  table {
+    font-family: 'Inconsolata';
+    font-size: 9pt;
+    padding: 7px;
+  }
+
+  #repVote {
+    outline: 1px solid whitesmoke;
+
+    height: 15px;
+    width: 3px;
+    background-color: #ff352c;
+    position: relative;
+    left: 50%;
+  }
+
+  #cD {
+    width: 50%;
+    height: 32px;
+    background-color: #2798da;
+    float: left;
+  }
+
+  #cR {
+    width: 50%;
+    height: 32px;
+    background-color: #ff352c;
+    float: left;
+  }
+  #demRange{
+    width:36%;
+    background-color: #2798da57;  
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(39,152,218,0.6488970588235294) 50%, rgba(255,255,255,0) 100%);
+  
+    position: relative;
+    display: inline-block;
+  }
+  #repRange{
+    width:36%;
+    background-color: #ff352c57;    
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,53,44,0.65) 50%, rgba(255,255,255,0) 100%);
+
+    position: relative;
+    display: inline-block;
+  }
+  .vote-box{
+    width: 200px;
+  }
+
+  #keybox {
+    position: relative;
+    top: -100;
+    text-align: left;
+    left: 10;
+    border: 3px solid black;
+    width: 180px;
+    padding: 5px;
+    height: 69px;
+    display: table;
+    background-color: #f5f5f5;
+    box-shadow: 5px 5px 0px black;
+  }
+
+  #info {
+    margin-bottom: 35px;
+  }
+
+  #map {
+    position: relative;
+    left: 25%;
+  }
+
+  #lower {
+    width: 100%;
+    display: inline-block;
+  }
+
+  .dem {
+    float: left;
+    color: #2798da;
+    font-size: 21pt;
+  }
+
+  .gop {
+    float: right;
+    color: #ff352c;
+    font-size: 21pt;
+    text-align: right;
+  }
+
+  button {
+    border: 2px solid #292929;
+    color: #292929;
+    background-color: whitesmoke;
+    font-weight: bold;
+    outline: none;
+    padding: 5px;
+    margin: 0px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #292929;
+    color: whitesmoke;
+  }
+
+  .meter {
+    height: 100%;
+    display: block;
+  }
+
+  #infobox {
+    border: 3px solid #292929;
+    background-color: rgba(255, 255, 255, .97);
+    text-align: left;
+    width: 225px;
+    padding: 10px;
+    z-index: 1;
+  }
+
+  #info-container {
+    width: 225px;
+    height: 150px;
+    position: absolute;
+  }
+
+  #para {
+    border: 3px solid black;
     padding: 10px;
     box-shadow: 5px 5px 0px black;
 
-   }
-    #state{
-        font-size: 15pt;
-    }
-    #notupD{
-        background-color: #2798da;
-    float:left;
-    }
-    hr{
-        border: 1px solid #292929;
-    }
-  
-     #notupR{
-        background-color: #ee5e3c;
-        width:100%;
-        float: right;
-    }
-    #topline {
-display: inline-block;
-border: 3px solid #292929;
-width: 100%;
-padding: 0px;
-padding-bottom: 10px;
+  }
 
-box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.95);
-}
-.box{
-  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.95);
-  padding:15px;
-  border:3px solid black;
+  #state {
+    font-size: 15pt;
+  }
+  #score{
+    display: none;
+  }
 
-}
-#top-container{
-      padding:15px;
-    }
-    #bar-container{
-      padding-bottom: 5px;
-    }
-    #key,#dist{
-        border-collapse: collapse;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    font-size: 8pt;
-        font-family: 
-    }
-    td{
-        padding:7px;
-        border:1px solid whitesmoke;
-        color:black;
-    }
-    iframe{
-      border: none;
-    }
-    #GA{
-        height:20px;
-        width:20px;
-        background-color: #e0e0e0;
-        padding:15px;
-        color:#292929;
-        position: relative;
-        left:80%;
-        top:-175px;
-        font-size: 11pt;
-        text-align: center;
-    }
-    #GA:hover{
-        outline:3px solid #292929;
-    }
-    #tag{
-        text-decoration: underline;
-        cursor:pointer;
-    }
-    #currentD{
-      float:left;
-      background-color: #2798da;
-      width: 10px;
-      border: 1px solid white;
-      font-size: 8pt;
-      text-align: center;
-      color:whitesmoke;
-      font-family: 'Inconsolata';
-    }
-    #currentR{
-      background-color: #ff352c;
+  #notupD {
+    background-color: #2798da;
+    float: left;
+  }
 
-      float:right;
-      width: 10px;
-      border: 1px solid white;
-      font-size: 8pt;
-      text-align: center;
-      color:whitesmoke;
-      font-family: 'Inconsolata';
-    }
-    #tag:hover{
-text-decoration: none;
-    }
-    #map-display{
-        width:100%;
-        height:550px;
-        overflow:hidden;
-        text-align: center;
-        padding-top:25px;   
-    }
-   
-   
-    #states-container{
-        width: 100%;
-        padding: 0;
-        font-family:'Inconsolata';
-        text-transform: uppercase;
-    }
-    .block,.blockD,.blockR{
-         height:30px;
-        width:1%;
-        padding:0px;
-                float:left;
-    }
-    #random{
-          transition: color 1s;
+  hr {
+    border: 1px solid #292929;
+  }
 
-    }
-    .block{
-        outline:1px solid whitesmoke;
-        background-color: #e0e0e0;
-        color:#292929;
-        float:left;
-        text-align: center;
-        cursor:crosshair;
-    }
-    .blockD{
-        background-color: rgba(4, 119, 218, 0.25);
-        outline:1px solid whitesmoke;
-    }
-    .blockR{
-        background-color: rgba(212, 50, 1, 0.25);
-        outline:1px solid whitesmoke;
-
-    }
-     #maj{
-        height:30px;
-        background-color:none;
-        outline:1px solid black;
-        color:#292929;
-        float:left;
-        text-align: center;
-        font-size:9pt;
-         opacity: .9;
-    }
-    .block:hover{
-        outline:3px solid #292929;
-        opacity: .9;
-    }
-    #distBar{
-        height:25px;
-        background-color: gray;
-    }
-    #dist td{
-        border-right:1px solid #292929;
-        font-family: 'Inconsolata';
-        font-size: 9pt;
-        font-weight: 100;
-    }
-    #dist td:nth-child(3){
-    }
-        #dist td:nth-child(4){
-padding:0px;
-border-bottom: 1px solid #292929;
-    }
-    #dist th{
-        border-bottom: 2px solid #292929;
-    }
-    #rater{
-        font-size:9pt;
-        text-align: center;
+  #notupR {
+    background-color: #ee5e3c;
     width: 100%;
-        border-collapse: collapse;
-        font-weight: bold;
-        border:0;
+    float: right;
+  }
+
+  #topline {
+    display: inline-block;
+    border: 3px solid #292929;
+    width: 100%;
+    padding: 0px;
+    padding-bottom: 10px;
+
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.95);
+  }
+
+  .box {
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.95);
+    padding: 15px;
+    border: 3px solid black;
+
+  }
+
+  #top-container {
+    padding: 15px;
+  }
+
+  #bar-container {
+    padding-bottom: 5px;
+  }
+
+  #key,
+  #dist {
+    border-collapse: collapse;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 8pt;
+    font-family:
+  }
+
+  td {
+    border: 1px solid whitesmoke;
+    color: black;
+  }
+
+  iframe {
+    border: none;
+  }
+
+  #GA {
+    height: 20px;
+    width: 20px;
+    background-color: #e0e0e0;
+    padding: 15px;
+    color: #292929;
+    position: relative;
+    left: 80%;
+    top: -175px;
+    font-size: 11pt;
+    text-align: center;
+  }
+
+  #GA:hover {
+    outline: 3px solid #292929;
+  }
+
+  #tag {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  #currentD {
+    float: left;
+    background-color: #2798da;
+    width: 10px;
+    border: 1px solid white;
+    font-size: 8pt;
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Inconsolata';
+  }
+
+  #currentR {
+    background-color: #ff352c;
+
+    float: right;
+    width: 10px;
+    border: 1px solid white;
+    font-size: 8pt;
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Inconsolata';
+  }
+
+  #tag:hover {
+    text-decoration: none;
+  }
+
+  #map-display {
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 25px;
+  }
+
+
+  #states-container {
+    width: 100%;
+    padding: 0;
+    font-family: 'Inconsolata';
+    text-transform: uppercase;
+  }
+
+  .block,
+  .blockD,
+  .blockR {
+    height: 30px;
+    width: 1%;
+    padding: 0px;
+    float: left;
+  }
+
+  #random {
+    transition: color 1s;
+
+  }
+
+  .block {
+    outline: 1px solid whitesmoke;
+    background-color: #e0e0e0;
+    color: #292929;
+    float: left;
+    text-align: center;
+    cursor: crosshair;
+  }
+
+  .blockD {
+    background-color: rgba(4, 119, 218, 0.25);
+    outline: 1px solid whitesmoke;
+  }
+
+  .blockR {
+    background-color: rgba(212, 50, 1, 0.25);
+    outline: 1px solid whitesmoke;
+
+  }
+
+  #maj {
+    height: 30px;
+    background-color: none;
+    outline: 1px solid black;
+    color: #292929;
+    float: left;
+    text-align: center;
+    font-size: 9pt;
+    opacity: .9;
+  }
+
+  .block:hover {
+    outline: 3px solid #292929;
+    opacity: .9;
+  }
+
+  #distBar {
+    height: 25px;
+    background-color: gray;
+  }
+
+  #dist td {
+    border-right: 1px solid #292929;
+    font-family: 'Inconsolata';
+    font-size: 9pt;
+    font-weight: 100;
+    padding: 5px;
+  }
+  #keybox td{
+    padding:5px;
+  }
+
+  #dist td:nth-child(3) {}
+
+  #dist td:nth-child(4) {
+    padding: 0px;
+    border-bottom: 1px solid #292929;
+  }
+
+  #dist th {
+    border-bottom: 2px solid #292929;
+  }
+
+  #rater {
+    font-size: 9pt;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    font-weight: bold;
+    border: 0;
+  }
+
+  #rater td {
+    padding: 2px;
+  }
+
+  #rating {
+    width: 50px;
+    float: right;
+    padding: 5px;
+    font-size: 9pt;
+    text-align: center;
+  }
+
+  #current {
+    border: 3px solid rgba(0, 0, 0, 0);
+  }
+
+  @media only screen and (max-width: 600px) {
+    #map {
+      left: 4%;
     }
-    #rater td{
-        padding:2px;
+
+    #map-display {
+      height: 400px;
     }
-    #rating{
-      width:50px;
-      float: right;
-      padding:5px;
-      font-size: 9pt;
-      text-align: center;
+
+    .blockD,
+    .blockR {
+      display: none;
     }
-    #current{
-              border: 3px solid rgba(0, 0, 0, 0);  
+
+    .block {
+      width: 2.857%;
     }
-@media only screen and (max-width: 600px) {
-    #map{
-        left:4%;
-    }
-    #map-display{
-        height:400px;
-    }
-    .blockD,.blockR{
-        display: none;
-    }
-    .block{
-        width:2.857%;
-    }
-    #keybox{
- 
+
+    #keybox {
+
       border: 3px solid black;
       width: 180px;
       padding: 5px;
@@ -1465,7 +1641,7 @@ border-bottom: 1px solid #292929;
       display: block;
       background-color: #f5f5f5;
       box-shadow: 5px 5px 0px black;
-}
-
     }
+
+  }
 </style>
