@@ -496,7 +496,7 @@ function parseSVGVertices( svgPath )
       for (i=0;i<32;i++) {
    
           this.topLetter = R.text(tMap[i].x,tMap[i].y,tMap[i].State).attr({
-        "font-size":'17px',
+        "font-size":'20px',
         'font-family':'Inconsolata',
         'stroke':'whitesmoke',
               'stroke-width':5,
@@ -505,9 +505,11 @@ function parseSVGVertices( svgPath )
               'stroke-linejoin':'round',
         });
     this.topLetter = R.text(tMap[i].x,tMap[i].y,tMap[i].State).attr({
-        "font-size":'17px',
+        "font-size":'20px',
+        'font-weight':"700",
+
         'font-family':'Inconsolata',
-        'fill':'#292929',
+        'fill':'black',
         'font-weight':'100'
         });
         
