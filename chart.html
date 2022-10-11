@@ -21,6 +21,11 @@ path {
 #lepenText{
 	fill:#ff352c;
 }
+.y.axis{
+	font-family: 'Inconsolata';
+	font-size: 10pt;
+}
+
 
 #macronLine{
 	stroke: #2798da;
@@ -68,7 +73,7 @@ path {
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script>
-var day =125;
+var day =143.4;
 var	margin = {top: 30, right: 100, bottom: 30, left: 50},
 	width = 400 - margin.left - margin.right,
 	height = 270 - margin.top - margin.bottom;
@@ -78,10 +83,10 @@ var x = d3.scaleTime().range([0, day]);
 var	y = d3.scaleLinear().range([height, 0]);
 
 var	xAxis =d3.axisBottom().scale(x)
-	.ticks(0);
+	.ticks(2);
 
 var	yAxis = d3.axisLeft().scale(y)
-	.ticks(3);
+	.ticks(5);
 
 var	valueline = d3.line()
     .x(function(d) { return x(d.date); })
@@ -109,13 +114,13 @@ var	svg = d3.select("body")
 
 function make_x_gridlines() {		
     return d3.axisBottom(x)
-        .ticks(0)
+        .ticks(2)
 }
 
 // gridlines in y axis function
 function make_y_gridlines() {		
     return d3.axisLeft(y)
-        .ticks(3)
+        .ticks(5)
 }
 
 // Get the data
@@ -180,7 +185,8 @@ d3.axisLeft()
 		.call(yAxis);
 	
 		svg.append("line")
-	    .style("stroke", "black")  // colour the line
+	    .style("stroke", "black")
+		.style("stroke-width", "2px")  // colour the line
         .attr("x1", 250)     // x position of the first end of the line
         .attr("y1", 0)      // y position of the first end of the line
         .attr("x2", 250)     // x position of the second end of the line
@@ -191,13 +197,13 @@ d3.axisLeft()
         .attr("cy", y(data[data.length-1].GOP)) 
         .attr("r", 4)
 		.attr("id", "lepenText")
-        .style("stroke","white");
+        .style("stroke","whitesmoke");
  svg.append("circle")
 	    .attr("cx", day)
         .attr("cy", y(data[data.length-1].Dem)) 
         .attr("r", 4)
 		.attr("id", "macronText")
-        .style("stroke","white");
+        .style("stroke","whitesmoke");
 svg.append("text")
 		.attr("transform", "translate(" + (day+5) + "," + y(data[data.length-1].GOP) + ")")
 		.attr("dy", ".35em")
@@ -212,15 +218,16 @@ svg.append("text")
 	.text(data[data.length-1].Dem+"% Dems");
 
 svg.append("text")
-	    .style("font-size", "9pt")  // colour the line
-		.text("Election Day")
+	    .style("font-size", "8pt")  // colour the line
+		.style("fill","gray")
+		.text("ELECTION DAY")
         .attr("x", 210)     // x position of the first end of the line
-        .attr("y",225 );
+        .attr("y",240 );
 	svg.append("text")
 	    .style("font-size", "9pt")  // colour the line
 		.text("NOV 8")
         .attr("x", 230)     // x position of the first end of the line
-        .attr("y",240 );
+        .attr("y",230 );
 
 	formatDate = d3.timeFormat("%b %-d")
 
