@@ -209,13 +209,13 @@ svg.append("text")
 		.attr("dy", ".35em")
 		.attr("text-anchor", "start")
 		.attr("id", "lepenText")
-		.text(data[data.length-1].GOP+"% GOP");
+		.text(data[data.length-1].GOP+"%");
 svg.append("text")
 	.attr("transform", "translate(" + (day+5) + "," + y(data[data.length-1].Dem) + ")")
 	.attr("dy", ".35em")
 	.attr("text-anchor", "start")
 	.attr("id", "macronText")
-	.text(data[data.length-1].Dem+"% Dems");
+	.text(data[data.length-1].Dem+"%");
 
 svg.append("text")
 	    .style("font-size", "8pt")  // colour the line
