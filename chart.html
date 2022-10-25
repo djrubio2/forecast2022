@@ -73,7 +73,7 @@ path {
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script>
-var day =180.1;
+var day =194.9;
 var	margin = {top: 30, right: 100, bottom: 30, left: 50},
 	width = 400 - margin.left - margin.right,
 	height = 270 - margin.top - margin.bottom;
@@ -224,10 +224,10 @@ svg.append("text")
         .attr("x", 210)     // x position of the first end of the line
         .attr("y",240 );
 	svg.append("text")
-	    .style("font-size", "9pt")  // colour the line
+	    .style("font-size", "8pt")  // colour the line
 		.text("NOV 8")
         .attr("x", 230)     // x position of the first end of the line
-        .attr("y",230 );
+        .attr("y",-1 );
 
 	formatDate = d3.timeFormat("%b %-d")
 
