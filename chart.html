@@ -26,7 +26,11 @@ path {
 	font-size: 10pt;
 }
 
-
+#backText{
+	fill:whitesmoke;
+	stroke: whitesmoke;
+stroke-width: 3px;
+}
 #macronLine{
 	stroke: #2798da;
 }
@@ -73,7 +77,7 @@ path {
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script>
-var day =209.6;
+var day =231.6;
 var	margin = {top: 30, right: 100, bottom: 30, left: 50},
 	width = 400 - margin.left - margin.right,
 	height = 270 - margin.top - margin.bottom;
@@ -204,6 +208,18 @@ d3.axisLeft()
         .attr("r", 4)
 		.attr("id", "macronText")
         .style("stroke","whitesmoke");
+		svg.append("text")
+		.attr("transform", "translate(" + (day+5) + "," + y(data[data.length-1].GOP) + ")")
+		.attr("dy", ".35em")
+		.attr("text-anchor", "start")
+		.attr("id", "backText")
+		.text(data[data.length-1].GOP+"%");
+svg.append("text")
+	.attr("transform", "translate(" + (day+5) + "," + y(data[data.length-1].Dem) + ")")
+	.attr("dy", ".35em")
+	.attr("text-anchor", "start")
+	.attr("id", "backText")
+	.text(data[data.length-1].Dem+"%");
 svg.append("text")
 		.attr("transform", "translate(" + (day+5) + "," + y(data[data.length-1].GOP) + ")")
 		.attr("dy", ".35em")
@@ -217,6 +233,8 @@ svg.append("text")
 	.attr("id", "macronText")
 	.text(data[data.length-1].Dem+"%");
 
+
+
 svg.append("text")
 	    .style("font-size", "8pt")  // colour the line
 		.style("fill","gray")
@@ -224,6 +242,7 @@ svg.append("text")
         .attr("x", 210)     // x position of the first end of the line
         .attr("y",240 );
 	svg.append("text")
+		.style("fill","gray")
 	    .style("font-size", "8pt")  // colour the line
 		.text("NOV 8")
         .attr("x", 230)     // x position of the first end of the line
@@ -232,7 +251,7 @@ svg.append("text")
 	formatDate = d3.timeFormat("%b %-d")
 
 	svg.append("text")
-	    .style("font-size", "9pt")  // colour the line
+	    .style("font-size", "8pt")  // colour the line
 		.text(formatDate(data[data.length-1].date))
         .attr("x", day)     // x position of the first end of the line
         .attr("y",230)   
